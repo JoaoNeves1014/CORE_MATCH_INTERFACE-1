@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --mercedes-silver: #C6C6C6;
+    --mercedes-black: #0b0b0b;
+    --petronas-turq: #00A19B;
+    --card-bg: #1a1a1a;
+}
+
+body {
+    background-color: var(--mercedes-black);
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #151515;
+    padding: 15px 5%;
+    border-bottom: 3px solid var(--petronas-turq);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex; 
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--mercedes-silver);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--petronas-turq);
+    text-shadow: 0 0 8px var(--petronas-turq);
+}
+
+/* 3. BUSCA */
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: white;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--petronas-turq);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #00c2ba;
+}
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.content-section { margin-bottom: 50px; }
+
+.content-section h2 {
+    margin-bottom: 25px;
+    border-left: 5px solid var(--petronas-turq);
+    padding-left: 15px;
+    text-transform: uppercase;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column; 
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--petronas-turq);
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1; 
+}
+
+.card-info h3 {
+    font-size: 1rem;
+    color: var(--petronas-turq);
+    min-height: 45px; 
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-buy {
+    background: transparent;
+    border: 1px solid var(--petronas-turq);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--petronas-turq);
+}
+
+.section-amd h2 {
+    border-left-color: #ff6000; 
+}
+
+.section-amd .card-info h3 {
+    color: #ff6000;
+}
+
+.section-amd .btn-buy {
+    border-color: #ff6000;
+}
+
+.section-amd .btn-buy:hover {
+    background-color: #ff6000;
+    color: white;
+}
+
+.section-amd .card:hover {
+    border-color: #ff6000;
+}
+
+.section-intel h2 {
+    border-left-color: #0071c5; 
+}
+
+.section-intel .card-info h3 {
+    color: #0071c5;
+}
+
+.section-intel .btn-buy {
+    border-color: #0071c5;
+}
+
+
+.section-intel .btn-buy:hover {
+    background-color: #0071c5;
+    color: white;
+}
+
+
+.section-intel .card:hover {
+    border-color: #0071c5;
+}
+
+.section-perifericos h2 {
+    border-left-color: #868686; 
+}
+
+
+.section-perifericos .card-info h3 {
+    color: white;
+}
+
+
+.section-perifericos .btn-buy {
+    border-color: #868686;
+}
+
+.section-perifericos .btn-buy:hover {
+    background-color: #868686;
+    color: white;
+}
+
+.section-perifericos .card:hover {
+    border-color: #868686;
+}
+
+.section-nvidia h2 {
+    border-left-color: #76b900; 
+}
+
+
+.section-nvidia .card-info h3 {
+    color: white;
+}
+
+
+.section-nvidia .btn-buy {
+    border-color: #76b900;
+}
+
+.section-nvidia .btn-buy:hover {
+    background-color: #76b900;
+    color: white;
+}
+
+.section-nvidia .card:hover {
+    border-color: #76b900;
+}
+
+.section-amdR h2 {
+    border-left-color: #ed1c24; 
+}
+
+
+.section-amdR .card-info h3 {
+    color: white;
+}
+
+
+.section-amdR .btn-buy {
+    border-color: #ed1c24;
+}
+
+.section-amdR .btn-buy:hover {
+    background-color: #ed1c24;
+    color: white;
+}
+
+.section-amdR .card:hover {
+    border-color: #ed1c24;
+}
+
+.main-footer {
+    background-color: var(--dark);
+    color: #ccc;
+    padding: 60px 0 20px 0;
+    margin-top: 60px;
+    border-top: 4px solid var(--primary);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-col h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.footer-col h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #999;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: var(--petronas-turq);
+    padding-left: 5px; 
+}
+
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 20px 20px 0 20px;
+    border-top: 1px solid #222;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-col a:hover {
+        padding-left: 0;
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.btn-login {
+    color: var(--mercedes-silver);
+    display: flex;
+    align-items: center;
+}
+
+.btn-login:hover {
+    color: var(--petronas-turq);
+    text-shadow: 0 0 8px var(--petronas-turq);
+}
+
+.btn-register {
+    background-color: transparent;
+    color: var(--petronas-turq);
+    border: 1px solid var(--petronas-turq);
+    box-shadow: inset 0 0 0 0 var(--petronas-turq);
+}
+
+.btn-register:hover {
+    background-color: var(--petronas-turq);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 161, 155, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .search-container {
+        width: 100%;
+        justify-content: center;
+    }
+}

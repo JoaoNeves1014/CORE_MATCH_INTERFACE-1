@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Core Match</title>
+    <link rel="stylesheet" href="../css/cadastro.css">
+</head>
+<body>
+    <div class="centralizar-tela">
+        <div class="caixa">
+            <div class="header-caixa">
+                <h2>Criar Conta</h2>
+                <p>Junte-se à comunidade de Hardware da Core Match.</p>
+            </div>
+
+            <form class="header-caixa" onsubmit="fazercadastro(event)">
+                <div class="grupo-input">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Mínimo 6 caracteres" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="senha-rep">Repita a Senha</label>
+                    <input type="password" id="senha-rep" placeholder="Confirme sua senha" required>
+                </div>
+
+                <button type="submit" class="botao-primario">Finalizar Cadastro</button>
+
+                <div class="divider">ou</div>
+
+                <a href="../html/home.html" class="botao-secundario">← Voltar para a Home</a>
+            </form>
+            
+            <div class="footer-caixa">
+                Já possui uma conta? <a href="../html/login.html">Fazer Login</a>
+            </div>
+        </div>
+    </div> 
+
+    <script src="../js/login.js"></script>
+</body>
+</html>

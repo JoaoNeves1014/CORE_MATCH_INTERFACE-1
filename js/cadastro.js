@@ -1,26 +1,80 @@
-function fazercadastro(event) {
-    
-    event.preventDefault();
+console.log("JS carregado");
 
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
-    const senhaRep = document.getElementById("senha-rep").value;
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (nome === "" || email === "" || senha === "" || senhaRep === "") {
-        alert("Por favor, preencha todos os campos!");
-        return;
-    }
+    console.log("DOM carregado");
 
-    if (senha !== senhaRep) {
-        alert("As senhas não coincidem!");
-        return;
-    }
+    const form = document.getElementById("formCadastro");
 
-    if (email === "admin@gmail.com") {
-        alert("Este e-mail já está cadastrado!");
-    } else {
-        alert("Cadastro realizado com sucesso, " + nome + "!");
-        window.location.href = "home.html";
-    }
-} 
+    form.addEventListener("submit", async (event) => {
+
+        console.log("Submit acionado");
+
+        event.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+
+        const email = document.getElementById("email").value;
+        
+        const senha = document.getElementById("senha").value;
+
+        const senhaRep = document.getElementById("senha-rep").value;
+
+        console.log(nome);
+        console.log(email);
+        console.log(senha);
+
+        // valida senha
+        if (senha !== senhaRep) {
+
+            alert("As senhas não coincidem");
+
+            return;
+        }
+
+        try {
+
+            console.log("Enviando para API...");
+
+            const resposta = await fetch(
+                "http://localhost:3000/TabelaCadastro",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        senha
+                    })
+                }
+            );
+
+            console.log("Resposta recebida");
+
+            const dados = await resposta.json();
+
+            console.log(dados);
+
+            if (!resposta.ok) {
+
+                alert(dados.erro);
+
+                return;
+            }
+
+            alert("Cadastro realizado");
+
+        } catch (erro) {
+
+            console.log("ERRO:");
+
+            console.log(erro);
+
+            alert("Erro ao conectar com API");
+        }
+    });
+});

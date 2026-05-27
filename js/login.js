@@ -1,25 +1,59 @@
+console.log("Login JS carregado");
 
+document.addEventListener("DOMContentLoaded", () => {
 
-function fazerlogin(event) {
+    const form = document.getElementById("formLogin");
 
-event.preventDefault();
+    form.addEventListener("submit", async (event) => {
 
-const email = document.getElementById("email").valu
-const senha = document.getElementById("senha").valu
+        event.preventDefault();
 
-if(email === "" || senha === "") {
-    alert("Preencha todos os campos!");
-    return;
-}
+        // pega dados
+        const email = document.getElementById("email").value;
 
-if (email === "admin@gmail.com" && senha === "123456") {
+        const senha = document.getElementById("senha").value;
 
-    alert("Login realizado com sucesso!");
+        try {
 
-    window.location.href = "home.html";
-} else {
+            // envia para API
+            const resposta = await fetch(
+                "http://localhost:3000/login",
+                {
+                    method: "POST",
 
-    alert("Email ou senha inválidos!");
-}
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-}
+                    body: JSON.stringify({
+                        email,
+                        senha
+                    })
+                }
+            );
+
+            const dados = await resposta.json();
+
+            // erro login
+            if (!resposta.ok) {
+
+                alert("Usuário não cadastrado");
+
+                return;
+            }
+
+            alert("Login realizado");
+
+            console.log(dados);
+
+            // redireciona
+            window.location.href = "home.html";
+
+        } catch (erro) {
+
+            console.log(erro);
+
+            alert("Erro ao conectar na API");
+        }
+    });
+});

@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --mercedes-silver: #C6C6C6;
+    --mercedes-black: #0b0b0b;
+    --petronas-turq: #00A19B;
+    --card-bg: #1a1a1a;
+}
+
+body {
+    background-color: var(--mercedes-black);
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #151515;
+    padding: 15px 5%;
+    border-bottom: 3px solid var(--petronas-turq);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo-img {
+    height: 60px; 
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex; 
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--mercedes-silver);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--petronas-turq);
+    text-shadow: 0 0 8px var(--petronas-turq);
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    padding: 8px 12px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: white;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--petronas-turq);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: 0.3s;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.btn-login {
+    color: var(--mercedes-silver);
+    display: flex;
+    align-items: center;
+}
+
+.btn-login:hover {
+    color: var(--petronas-turq);
+    text-shadow: 0 0 8px var(--petronas-turq);
+}
+
+.btn-register {
+    background-color: transparent;
+    color: var(--petronas-turq);
+    border: 1px solid var(--petronas-turq);
+    box-shadow: inset 0 0 0 0 var(--petronas-turq);
+}
+
+.btn-register:hover {
+    background-color: var(--petronas-turq);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 161, 155, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .header-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .search-container {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Estrutura principal dividida em duas colunas */
+.build-container {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 30px;
+}
+
+/* Títulos */
+.section-title, .side-title {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.section-title {
+    border-left: 5px solid var(--petronas-turq);
+    padding-left: 15px;
+}
+
+.compatibility-status {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.component-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.component-row {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comp-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.comp-icon {
+    font-size: 1.5rem;
+}
+
+.comp-info small {
+    color: #888;
+    display: block;
+}
+
+.comp-info p {
+    font-weight: bold;
+    color: white;
+}
+
+.btn-change {
+    background: transparent;
+    border: 1px solid var(--petronas-turq);
+    color: var(--petronas-turq);
+    padding: 6px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-change:hover {
+    background-color: var(--petronas-turq);
+    color: white;
+}
+
+/* Barras de Progresso Gerais (Usadas em energia e gargalo) */
+.progress-bar {
+    background-color: #222;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress {
+    background-color: #555;
+    height: 100%;
+}
+
+.bar-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* Seção de Gargalo */
+.bottleneck-section {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.bottleneck-section h4 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.bottleneck-section h4 span {
+    color: #28a745;
+}
+
+.bar-group {
+    margin-bottom: 15px;
+}
+
+/* Cards da coluna direita */
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.price-box {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.status-box {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.highlight-orange {
+    color: #fd7e14;
+    float: right;
+}
+
+/* Potência do PC */
+.power-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.power-score {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--petronas-turq);
+}
+
+.power-stats p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+.power-stats span {
+    color: white;
+    font-weight: bold;
+}
+
+/* Grid de FPS */
+.fps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.fps-item {
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.game-placeholder {
+    background-color: #252525;
+    height: 70px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-weight: bold;
+}
+
+.fps-item span {
+    color: var(--petronas-turq);
+    font-weight: bold;
+}
+
+/* Responsividade Básica */
+@media (max-width: 968px) {
+    .build-container {
+        grid-template-columns: 1fr;
+    }
+}

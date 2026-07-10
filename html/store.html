@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
+    <title>Loja - Core Store</title>
     <link rel="stylesheet" href="../css/store.css">
 </head>
 <body>
-
-
 
     <header class="navbar">
         <div class="logo">
@@ -17,7 +15,7 @@
             </a>
         </div>
     
-        <h1 Style="color: #00A19B"(255, 0, 0);>Core Store</h1>
+        <h1 style="color: #00A19B;">Core Store</h1>
         
         <nav>
             <ul class="nav-links">
@@ -25,10 +23,9 @@
                 <li><a href="../html/outlet.html">Outlet Hardware</a></li>
                 <li><a href="../html/compatible.html">Compatible PCs</a></li>
                 <li><a href="../html/montagem.html">Monte seu PC</a></li>
-                <li><a href="#">AI Support</a></li>
+                <li><a href="../html/perfil.html">Meu Perfil</a></li>
             </ul>
         </nav>
-
 
         <div class="search-container">
             <input type="text" placeholder="Pesquisar...">
@@ -39,256 +36,513 @@
             <a href="../html/login.html" class="btn-login">Login</a>
             <a href="../html/cadastro.html" class="btn-register">Cadastrar</a>
         </div>
-    </div>
     </header>
 
     <main class="container">
-        <section class="content-section section-amd">
-            <h2>AMD</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-image"><img src="../img/Ryzen 5 5600GT.png" alt="AMD Ryzen 5 5600GT"></div>
-                    <div class="card-info">
-                        <h3>AMD Ryzen 5 5600GT</h3>
-                        <p class="price">R$879.00</p>
-                        <a href=""><button class="btn-buy">Comprar</button></a>
-                        <a href=""><button class="btn-buy" onclick="selecionarProcessador('AMD Ryzen 5 5600GT')">Compatibilidade</button></a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"><img src="../img/Ryzen 7 7800X3D.png" alt="Ryzen 7"></div>
-                    <div class="card-info">
-                        <h3>AMD Ryzen 7 7800X3D</h3>
-                        <p class="price">R$2,220.00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image"><img src="../img/Ryzen 9 9950X3D.png" alt="Ryzen 9"></div>
-                    <div class="card-info">
-                        <h3>AMD Ryzen 9 9950X3D</h3>
-                        <p class="price">R$3,190.00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+    <section class="content-section section-amd">
+        <h2>AMD</h2>
+        <div class="card-grid">
+            <div class="card card-hardware cpu amd-compat" data-desc="Processador de codinome Cezanne com gráficos integrados Radeon Vega 7. Ideal para setups de entrada e alta performance competitiva em jogos leves." data-specs="Frequência: 3.6GHz (4.4GHz Turbo) | Núcleos: 6 | Threads: 12 | Cache: 16MB | Socket: AM4">
+                <div class="card-image"><img src="../img/Ryzen 5 5600GT.png" alt="AMD Ryzen 5 5600GT"></div>
+                <div class="card-info">
+                    <h3>AMD Ryzen 5 5600GT</h3>
+                    <p class="price">R$879,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
             </div>
-        </section>
-        
-        <section class="content-section section-intel">
-            <h2>Intel</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-image"><img src="../img/Intel Core i5 14.png" alt="Intel 5"></div>
-                    <div class="card-info">
-                        <h3>Intel Core i5 14600F</h3>
-                        <p class="price">R$1,599.00</p>
-                         <a href="/html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
-                </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/Intel core i7.webp" alt="Intel 7"></div>
-                    <div class="card-info">
-                        <h3>Intel Core i7 14700F</h3>
-                        <p class="price">R$2,600.00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware cpu amd-compat" data-desc="O rei absoluto dos jogos. Equipado com a tecnologia 3D V-Cache que empilha memória cache verticalmente para maximizar as taxas de quadros (FPS)." data-specs="Frequência: 4.2GHz (5.0GHz Turbo) | Núcleos: 8 | Threads: 16 | Cache: 96MB 3D V-Cache | Socket: AM5">
+                <div class="card-image"><img src="../img/Ryzen 7 7800X3D.png" alt="Ryzen 7"></div>
+                <div class="card-info">
+                    <h3>AMD Ryzen 7 7800X3D</h3>
+                    <p class="price">R$2.220,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/Core i9.png" alt="intel 9"></div>
-                    <div class="card-info">
-                        <h3>Intel Core i9 14900F</h3>
-                        <p class="price">R$3,680.00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware cpu amd-compat" data-desc="A força bruta máxima da arquitetura Zen 5 com tecnologia 3D V-Cache. Voltado para entusiastas extremos, streamers e criadores de conteúdo pesado." data-specs="Frequência: 4.3GHz (5.7GHz Turbo) | Núcleos: 16 | Threads: 32 | Cache: 128MB 3D V-Cache | Socket: AM5">
+                <div class="card-image"><img src="../img/Ryzen 9 9950X3D.png" alt="Ryzen 9"></div>
+                <div class="card-info">
+                    <h3>AMD Ryzen 9 9950X3D</h3>
+                    <p class="price">R$3.190,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
-            </section>
-
-        <section class="content-section section-perifericos">
-            <h2>Perifericos</h2>
-                <div class="card-grid">
-                    <div class="card">
-                    <div class="card-image"><img src="../img/Ajazz-AK820-Teclado.png" alt="AK820"></div>
-                    <div class="card-info">
-                        <h3>Teclado Attack Shark x Ajazz AK820</h3>
-                        <p class="price">R$363,33</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section section-intel">
+        <h2>Intel</h2>
+        <div class="card-grid">
+            <div class="card card-hardware cpu intel-compat" data-desc="Excelente custo-benefício da 14ª geração. Arquitetura híbrida focada em eficiência térmica e processamento inteligente para multitarefas e jogos modernos." data-specs="Frequência Base: 2.5GHz (4.7GHz Turbo) | Núcleos: 14 (6 P-cores + 8 E-cores) | Threads: 20 | Cache: 24MB | Socket: LGA1700">
+                <div class="card-image"><img src="../img/Intel Core i5 14.png" alt="Intel 5"></div>
+                <div class="card-info">
+                    <h3>Intel Core i5 14600F</h3>
+                    <p class="price">R$1.599,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RedKumara.webp" alt="Kumara"></div>
-                    <div class="card-info">
-                        <h3>Teclado Redragon Kumara Tricolor</h3>
-                        <p class="price">R$275,90</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware cpu intel-compat" data-desc="Desempenho de ponta projetado para rodar os títulos AAA mais exigentes no máximo, sem quedas de performance enquanto gerencia aplicativos em segundo plano." data-specs="Frequência Base: 3.4GHz (5.4GHz Turbo) | Núcleos: 20 (8 P-cores + 12 E-cores) | Threads: 28 | Cache: 33MB | Socket: LGA1700">
+                <div class="card-image"><img src="../img/Intel core i7.webp" alt="Intel 7"></div>
+                <div class="card-info">
+                    <h3>Intel Core i7 14700F</h3>
+                    <p class="price">R$2.600,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/AtkShrkX11.webp" alt="X11"></div>
-                    <div class="card-info">
-                        <h3>Mouse Attack Shark X11 WHITE</h3>
-                        <p class="price">R$135,60</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware cpu intel-compat" data-desc="O topo de linha da Intel. Desempenho sem precedentes para computação pesada, renderização 3D profissional e o máximo que a tecnologia híbrida pode entregar." data-specs="Frequência Base: 3.2GHz (5.8GHz Turbo) | Núcleos: 24 (8 P-cores + 16 E-cores) | Threads: 32 | Cache: 36MB | Socket: LGA1700">
+                <div class="card-image"><img src="../img/Core i9.png" alt="intel 9"></div>
+                <div class="card-info">
+                    <h3>Intel Core i9 14900F</h3>
+                    <p class="price">R$3.680,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/LogitechG435.png" alt="G435"></div>
-                    <div class="card-info">
-                        <h3>Headset Logitech G435 Sem Fio</h3>
-                        <p class="price">R$435,00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+    <section class="content-section section-PLCMAE">
+        <h2>Placas Mães</h2>
+        <div class="card-grid">
+            <div class="card card-hardware motherboard amd-compat ddr4" data-desc="Placa-mãe confiável com dissipadores robustos no VRM e conectividade sem fio integrada. Perfeita para processadores AMD Ryzen de socket AM4." data-specs="Chipset: AMD B550 | Formato: mATX | Suporte de Memória: DDR4 até 4400MHz | Conectividade: Wi-Fi AC e Bluetooth 4.2">
+                <div class="card-image"><img src="../img/placa-mae-msi-b550m-pro-vdh-wifi-amd-am4-matx_1594996441_gg-removebg-preview.png" alt="B550"></div>
+                <div class="card-info">
+                    <h3>MSI B550M Pro-VDH WiFi</h3>
+                    <p class="price">R$789,90</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/FIFINE-H6.avif" alt=""></div>
-                    <div class="card-info">
-                        <h3>Headset Fifine H6</h3>
-                        <p class="price">R$275,00</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware motherboard amd-compat ddr5" data-desc="Durabilidade de nível militar com os mais recentes recursos para a plataforma AM5 da AMD. Pronta para suportar memórias DDR5 ultra velozes e PCIe 5.0." data-specs="Chipset: AMD B650 | Formato: ATX | Suporte de Memória: DDR5 até 7600MHz | Conectividade: Wi-Fi 6E e Bluetooth 5.2">
+                <div class="card-image"><img src="../img/placamaeB650PLUS.png" alt="Placa B650-PLUS"></div>
+                <div class="card-info">
+                    <h3>ASUS TUF Gaming B650-Plus Wi-Fi</h3>
+                    <p class="price">R$1.679,99</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/FIFINE-AM8.webp" alt="am8"></div>
-                    <div class="card-info">
-                        <h3>Microphone Fifine am8</h3>
-                        <p class="price">R$349,90</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware motherboard amd-compat ddr5" data-desc="Plataforma AM5 topo de linha para entusiastas. Entrega VRM massivo para overclock, conectividade USB4 de última geração e slots PCIe 5.0 completos para placas de vídeo e SSDs." data-specs="Chipset: AMD X870E | Formato: ATX | Suporte de Memória: DDR5 até 8000MHz | Conectividade: Wi-Fi 7 e Bluetooth 5.4">
+                <div class="card-image"><img src="../img/ASUS ROG Strix X870E-E Gaming WiFi.png" alt="ASUS ROG Strix X870E-E Gaming WiFi"></div>
+                <div class="card-info">
+                    <h3>ASUS ROG Strix X870E-E Gaming WiFi</h3>
+                    <p class="price">R$ 4.776,99</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/logitechg203.png" alt="G203"></div>
-                    <div class="card-info">
-                        <h3>Mouse Logitehc G203</h3>
-                        <p class="price">R$91,90</p>
-                         <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware motherboard intel-compat ddr5" data-desc="Design moderno e energia robusta para a 14ª geração Intel Core. Equipada com dissipadores avançados no VRM, suporte a memórias DDR5 e EZ-Latch para fácil instalação de componentes." data-specs="Chipset: Intel B760 | Formato: Micro-ATX | Suporte de Memória: DDR5 até 7600MHz | Conectividade: Rede LAN 2.5GbE">
+                <div class="card-image"><img src="../img/Gigabyte B760M Aorus Elite (DDR5).png" alt="Gigabyte B760M Aorus Elite"></div>
+                <div class="card-info">
+                    <h3>Gigabyte B760M Aorus Elite (DDR5)</h3>
+                    <p class="price">R$ 1.149,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/AULAF75.webp" alt=""></div>
-                    <div class="card-info">
-                        <h3>Teclado Aula F75 Cedar Green</h3>
-                        <p class="price">R$395,89</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware motherboard intel-compat ddr5" data-desc="Construída para entregar estabilidade extrema sob alta carga de processamento. Traz uma solução de energia premium, blindagem de slots M.2 e conectividade sem fio de alta velocidade." data-specs="Chipset: Intel B760 | Formato: ATX | Suporte de Memória: DDR5 até 7000MHz | Conectividade: Wi-Fi 6E e Bluetooth 5.3">
+                <div class="card-image"><img src="../img/MSI MAG B760 Tomahawk.png" alt="MSI MAG B760 Tomahawk WiFi"></div>
+                <div class="card-info">
+                    <h3>MSI MAG B760 Tomahawk WiFi (DDR5)</h3>
+                    <p class="price">R$ 1.499,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RazerDeathAdder.webp" alt="DeathAdder"></div>
-                    <div class="card-info">
-                        <h3>Mouse Razer DeathAdder</h3>
-                        <p class="price">R$160,00</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware motherboard intel-compat ddr5" data-desc="A placa definitiva para a linha Intel Core i9. Apresenta um VRM monstruoso de 18+1 fases, dissipadores integrados imensos com display RGB e suporte total a tecnologias de ponta." data-specs="Chipset: Intel Z790 | Formato: ATX | Suporte de Memória: DDR5 até 8000MHz | Conectividade: Wi-Fi 7 e Bluetooth 5.4">
+                <div class="card-image"><img src="../img/ASUS ROG STRIX Z790.png" alt="ASUS ROG Strix Z790-E Gaming WiFi II"></div>
+                <div class="card-info">
+                    <h3>ASUS ROG Strix Z790-E Gaming WiFi II</h3>
+                    <p class="price">R$ 3.899,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
-        </section>
+            </div>
+        </div>
+    </section>
 
-        <section class="content-section section-nvidia">
-            <h2>GPUs Nvidia</h2>
-                <div class="card-grid">
-                    <div class="card">
-                    <div class="card-image"><img src="../img/RTX4070TI.webp" alt="4060"></div>
-                    <div class="card-info">
-                        <h3>RTX 4060 Ti 16gb</h3>
-                        <p class="price">R$3.065,90</p>
-                       <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+    <section class="content-section section-memoria">
+        <h2>Memória Ram</h2>
+        <div class="card-grid">
+            <div class="card card-hardware ram ddr4" data-desc="Alta confiabilidade e performance sólida para setups DDR4. Conta com dissipador de calor de perfil baixo e suporte a Intel XMP para overclock automático estável." data-specs="Tipo: DDR4 | Capacidade: 16GB (2x8GB) | Frequência: 3200MHz | Latência: CL16">
+                <div class="card-image"><img src="../img/Kingston Memoria Fury Beast 16.png" alt="Kingston FURY Beast 16GB DDR4"></div>
+                <div class="card-info">
+                    <h3>Kingston FURY Beast 16GB (2x8GB) 3200MHz DDR4</h3>
+                    <p class="price">R$ 299,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RTX5060.webp" alt="5060"></div>
-                    <div class="card-info">
-                        <h3>RTX 5060 8gb</h3>
-                        <p class="price">R$2.765,90</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware ram ddr4" data-desc="Desempenho aliado a uma estética geométrica marcante. Traz uma barra de iluminação RGB personalizável e dissipador de metal robusto para resfriamento eficiente." data-specs="Tipo: DDR4 | Capacidade: 16GB (2x8GB) | Frequência: 3200MHz | Latência: CL16">
+                <div class="card-image"><img src="../img/Spectrix D50 16GB.png" alt="XPG Spectrix D50 RGB 16GB DDR4"></div>
+                <div class="card-info">
+                    <h3>XPG Spectrix D50 RGB 16GB (2x8GB) 3200MHz DDR4</h3>
+                    <p class="price">R$ 349,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RTX3060.webp" alt=""></div>
-                    <div class="card-info">
-                        <h3>RTX 3060 8gb</h3>
-                        <p class="price">R$1.998,88</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware ram ddr5" data-desc="A evolução da velocidade para sistemas modernos. Otimizada para placas-mãe Intel e AMD, oferece frequências mais altas e maior largura de banda em um formato compacto." data-specs="Tipo: DDR5 | Capacidade: 32GB (2x16GB) | Frequência: 5600MHz | Latência: CL40">
+                <div class="card-image"><img src="../img/Corsair Vengeance 32x2x16.avif" alt="Corsair Vengeance 32GB DDR5"></div>
+                <div class="card-info">
+                    <h3>Corsair Vengeance 32GB (2x16GB) 5600MHz DDR5</h3>
+                    <p class="price">R$ 799,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-        </section>
-
-        <section class="content-section section-amdR">
-            <h2>GPUs AMD Radeon</h2>
-                <div class="card-grid">
-                    <div class="card">
-                    <div class="card-image"><img src="../img/RX6650xt.webp" alt="6650"></div>
-                    <div class="card-info">
-                        <h3>AMD Radeon RX 6650 xt 8gb</h3>
-                        <p class="price">R$2,300.00</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                        <a href=""><button class="btn-buy" onclick="selecionarPlacaVideo('AMD Radeon RX 6650 xt 8gb')">Compatibilidade</button></a>
-                    </div>
+            <div class="card card-hardware ram ddr5" data-desc="Estilo brilhante e performance de última geração. Possui iluminação RGB vibrante customizável via software e suporte a perfis Intel XMP 3.0 e AMD EXPO." data-specs="Tipo: DDR5 | Capacidade: 32GB (2x16GB) | Frequência: 6000MHz | Latência: CL36">
+                <div class="card-image"><img src="../img/Kingston Fury Beast 32gb.png" alt="Kingston FURY Beast RGB 32GB DDR5"></div>
+                <div class="card-info">
+                    <h3>Kingston FURY Beast RGB 32GB (2x16GB) 6000MHz DDR5</h3>
+                    <p class="price">R$ 899,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RX7600xt.png" alt="7600xt"></div>
-                    <div class="card-info">
-                        <h3>AMD Radeon RX 7600 xt 16gb</h3>
-                        <p class="price">R$2,980.00</p>
-                        <a href="../html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware ram ddr5" data-desc="Projetada especificamente para processadores AMD Ryzen. Com um perfil discreto e latência otimizada, é a escolha perfeita para estabilidade extrema e alta taxa de quadros." data-specs="Tipo: DDR5 | Capacidade: 32GB (2x16GB) | Frequência: 6000MHz | Latência: CL30 (Baixa Latência)">
+                <div class="card-image"><img src="../img/G.Skill Flare X5 32GB (2x16GB) 6000MHz CL30 DDR5.png" alt="G.Skill Flare X5 32GB DDR5"></div>
+                <div class="card-info">
+                    <h3>G.Skill Flare X5 32GB (2x16GB) 6000MHz CL30 DDR5</h3>
+                    <p class="price">R$ 949,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
+            </div>
 
-                <div class="card">
-                    <div class="card-image"><img src="../img/RX7800xt.png" alt="7800"></div>
-                    <div class="card-info">
-                        <h3>AMD Radeon RX 7800 xt 16gb</h3>
-                        <p class="price">R$4,747.00</p>
-                        <a href="/html/carrinho.html"><button class="btn-buy">Comprar</button></a>
-                    </div>
+            <div class="card card-hardware ram ddr5" data-desc="O ápice do design e desempenho de memórias. Construção premium em alumínio forjado, LEDs RGB RGB Capellix de alto brilho e chips rigorosamente selecionados para entusiastas." data-specs="Tipo: DDR5 | Capacidade: 32GB (2x16GB) | Frequência: 6400MHz | Latência: CL32">
+                <div class="card-image"><img src="../img/Corsair Dominator Titanium RGB 32GB (2x16GB) 6400MHz DDR5.png" alt="Corsair Dominator Titanium RGB 32GB DDR5"></div>
+                <div class="card-info">
+                    <h3>Corsair Dominator Titanium RGB 32GB (2x16GB) 6400MHz DDR5</h3>
+                    <p class="price">R$ 1.499,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
                 </div>
-            </section>
-    </main>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-armazenamento">
+        <h2>Armazenamento</h2>
+        <div class="card-grid">
+            <div class="card card-hardware ssd nvme" data-desc="Excelente solução de armazenamento Gen 4x4. Entrega velocidades de leitura e gravação rápidas para um carregamento ágil de sistemas operacionais e jogos com baixo consumo de energia." data-specs="Interface: M.2 NVMe PCIe 4.0 | Capacidade: 1TB | Leitura: Até 3500 MB/s | Gravação: Até 2100 MB/s">
+                <div class="card-image"><img src="../img/SSD Kingston NV2 1TB M.2 NVMe.png" alt="Kingston NV2 1TB"></div>
+                <div class="card-info">
+                    <h3>SSD Kingston NV2 1TB M.2 NVMe</h3>
+                    <p class="price">R$ 399,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware ssd nvme" data-desc="Armazenamento NVMe Gen4 confiável e veloz de uma das marcas líderes mundiais em memória. Ideal para atualizar PCs gamers intermediários que exigem respostas rápidas." data-specs="Interface: M.2 NVMe PCIe 4.0 | Capacidade: 1TB | Leitura: Até 5000 MB/s | Gravação: Até 3600 MB/s">
+                <div class="card-image"><img src="../img/SSD Crucial P3 Plus 1TB M.2 NVMe.png" alt="Crucial P3 Plus 1TB"></div>
+                <div class="card-info">
+                    <h3>SSD Crucial P3 Plus 1TB M.2 NVMe</h3>
+                    <p class="price">R$ 459,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware ssd nvme" data-desc="Desempenho de nível premium usando o mais recente controlador PCIe 4.0 NVMe. Equipado com um dissipador de alumínio e grafeno de perfil baixo para manter as velocidades no máximo por muito mais tempo." data-specs="Interface: M.2 NVMe PCIe 4.0 | Capacidade: 1TB | Leitura: Até 7000 MB/s | Gravação: Até 6000 MB/s">
+                <div class="card-image"><img src="../img/SSD Kingston KC3000 1TB M.2 NVMe.png" alt="Kingston KC3000 1TB"></div>
+                <div class="card-info">
+                    <h3>SSD Kingston KC3000 1TB M.2 NVMe</h3>
+                    <p class="price">R$ 629,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware ssd nvme" data-desc="O SSD PCIe 4.0 definitivo para quem busca a velocidade máxima absoluta do mercado. Eficiência térmica aprimorada, ideal para renderizações pesadas, workstations e consoles." data-specs="Interface: M.2 NVMe PCIe 4.0 | Capacidade: 2TB | Leitura: Até 7450 MB/s | Gravação: Até 6900 MB/s">
+                <div class="card-image"><img src="../img/SSD Samsung 990 Pro 2TB M.2 NVMe.png" alt="Samsung 990 Pro 2TB"></div>
+                <div class="card-info">
+                    <h3>SSD Samsung 990 Pro 2TB M.2 NVMe</h3>
+                    <p class="price">R$ 1.299,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware ssd sata" data-desc="A forma mais simples e confiável de acelerar computadores antigos ou expandir o armazenamento de jogos. Inicializações muito mais rápidas do que discos rígidos tradicionais." data-specs="Interface: SATA III 2.5 polegadas | Capacidade: 1TB | Leitura: Até 540 MB/s | Gravação: Até 500 MB/s">
+                <div class="card-image"><img src="../img/SSD Crucial BX500 1TB SATA III.png" alt="Crucial BX500 1TB"></div>
+                <div class="card-info">
+                    <h3>SSD Crucial BX500 1TB SATA III</h3>
+                    <p class="price">R$ 369,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware ssd sata" data-desc="Um clássico do mercado nacional, conhecido por sua durabilidade e excelente preço. Perfeito para armazenar sua biblioteca extra de arquivos e jogos com agilidade." data-specs="Interface: SATA III 2.5 polegadas | Capacidade: 960GB | Leitura: Até 500 MB/s | Gravação: Até 450 MB/s">
+                <div class="card-image"><img src="../img/SSD Kingston A400 960GB SATA III.png" alt="Kingston A400 960GB"></div>
+                <div class="card-info">
+                    <h3>SSD Kingston A400 960GB SATA III</h3>
+                    <p class="price">R$ 359,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-gabinete">
+        <h2>Gabinetes</h2>
+        <div class="card-grid">
+            <div class="card card-hardware cabinet" data-desc="Compacto e com excelente circulação de ar para builds custo-benefício. Possui painel frontal em malha metálica (mesh) e lateral em vidro temperado para exibir seus componentes." data-specs="Formato: Mid-Tower | Suporte de Placa: ATX/M-ATX | Lateral: Vidro Temperado | Ventoinhas Inclusas: 3x 120mm">
+                <div class="card-image"><img src="../img/Gabinete Gamer Pichau Apus Black.png" alt="Pichau Apus Black"></div>
+                <div class="card-info">
+                    <h3>Gabinete Gamer Pichau Apus Black</h3>
+                    <p class="price">R$ 199,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cabinet" data-desc="O campeão de ventilação da atualidade. Espaço interno generoso para placas de vídeo gigantes, excelente organização de cabos e ventoinhas de alto fluxo de ar já inclusas de fábrica." data-specs="Formato: Mid-Tower | Suporte de Placa: E-ATX/ATX | Lateral: Vidro Temperado | Ventoinhas Inclusas: 4x 140mm ARGB">
+                <div class="card-image"><img src="../img/Gabinete Gamer Montech Air 903 Max.png" alt="Montech Air 903 Max"></div>
+                <div class="card-info">
+                    <h3>Gabinete Gamer Montech Air 903 Max</h3>
+                    <p class="price">R$ 399,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cabinet" data-desc="Visual geométrico agressivo focado em desempenho térmico. Traz um painel lateral em vidro temperado de abertura fácil e amplo suporte para radiadores na parte superior e frontal." data-specs="Formato: Mid-Tower | Suporte de Placa: ATX/M-ATX | Lateral: Vidro Temperado | Ventoinhas Inclusas: 4x 120mm ARGB">
+                <div class="card-image"><img src="../img/Gabinete Gamer Antec AX90.png" alt="Antec AX90"></div>
+                <div class="card-info">
+                    <h3>Gabinete Gamer Antec AX90</h3>
+                    <p class="price">R$ 459,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cabinet" data-desc="Design clean, minimalista e engenharia de refrigeração premiada. Conta com o sistema RapidRoute de gerenciamento de cabos que deixa o visual interno impecável sem esforço." data-specs="Formato: Mid-Tower | Suporte de Placa: ATX/M-ATX | Lateral: Vidro Temperado | Ventoinhas Inclusas: 2x 120mm AirGuide">
+                <div class="card-image"><img src="../img/Gabinete Corsair 4000D Airflow Black.png" alt="Corsair 4000D Airflow"></div>
+                <div class="card-info">
+                    <h3>Gabinete Corsair 4000D Airflow Black</h3>
+                    <p class="price">R$ 599,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cabinet" data-desc="Projetado especificamente para resfriamento a ar e a água de setups avançados. Painéis modulares traseiros e ventoinhas frontais imensas garantem temperaturas incrivelmente baixas." data-specs="Formato: Mid-Tower | Suporte de Placa: E-ATX/ATX | Lateral: Vidro Temperado | Ventoinhas Inclusas: 2x 160mm ARGB + 1x 140mm PWM">
+                <div class="card-image"><img src="../img/Gabinete Lian Li Lancool 216 RGB.png" alt="Lian Li Lancool 216"></div>
+                <div class="card-info">
+                    <h3>Gabinete Lian Li Lancool 216 RGB</h3>
+                    <p class="price">R$ 699,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cabinet aquarium" data-desc="Gabinete estilo aquário premium com visual panorâmico espetacular. Vidro temperado duplo sem colunas estruturais na quina, projetado para exibir setups entusiastas de alto nível." data-specs="Formato: Dual-Chamber Mid-Tower | Suporte de Placa: ATX/M-ATX | Laterais: Vidros Temperados | Ventoinhas Inclusas: 4x 120mm Quiet Airflow">
+                <div class="card-image"><img src="../img/Gabinete NZXT H9 Flow Black.png" alt="NZXT H9 Flow"></div>
+                <div class="card-info">
+                    <h3>Gabinete NZXT H9 Flow Black</h3>
+                    <p class="price">R$ 1.199,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-refrigeracao">
+        <h2>Refrigeração</h2>
+        <div class="card-grid">
+            <div class="card card-hardware cooling aircooler" data-desc="O rei do resfriamento a ar por custo-benefício. Instalação simples, 4 heatpipes de cobre de contato direto e formato que não bloqueia os slots de memória RAM." data-specs="Tipo: Air Cooler | Ventoinha: 1x 120mm PWM | Dissipação Max (TDP): Até 220W | Iluminação: Sem Led">
+                <div class="card-image"><img src="../img/Air Cooler Deepcool AG400.png" alt="Deepcool AG400"></div>
+                <div class="card-info">
+                    <h3>Air Cooler Deepcool AG400</h3>
+                    <p class="price">R$ 139,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cooling aircooler dual-tower" data-desc="Uma lenda mundial em refrigeração de ar. Design de torre dupla (dual tower) com 6 heatpipes que entrega performance térmica idêntica a muitos water coolers de 240mm." data-specs="Tipo: Air Cooler Dual-Tower | Ventoinhas: 2x 120mm PWM | Dissipação Max (TDP): Até 245W | Iluminação: Sem Led">
+                <div class="card-image"><img src="../img/Air Cooler Thermalright Peerless Assassin 120 SE.png" alt="Thermalright Peerless Assassin 120 SE"></div>
+                <div class="card-info">
+                    <h3>Air Cooler Thermalright Peerless Assassin 120 SE</h3>
+                    <p class="price">R$ 299,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cooling aircooler premium" data-desc="Performance absurda com um toque futurista. Possui uma tela digital discreta no topo que exibe em tempo real a temperatura da CPU e avisos de alta temperatura do sistema." data-specs="Tipo: Air Cooler Premium | Ventoinhas: 2x 120mm Fluid Dynamic | Dissipação Max (TDP): Até 260W | Recursos: Display Digital Integrado">
+                <div class="card-image"><img src="../img/Air Cooler Deepcool AK620 Digital.png" alt="Deepcool AK620 Digital"></div>
+                <div class="card-info">
+                    <h3>Air Cooler Deepcool AK620 Digital</h3>
+                    <p class="price">R$ 499,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cooling watercooler" data-desc="Refrigeração líquida eficiente com iluminação ARGB vibrante. Conta com tecnologia antivazamento integrada e microcanais de cobre otimizados para máxima transferência de calor." data-specs="Tipo: Water Cooler | Radiador: 240mm Alumínio | Ventoinhas: 2x 120mm ARGB | Iluminação: Bomba e Fans Sincronizáveis">
+                <div class="card-image"><img src="../img/Water Cooler Deepcool LE520 ARGB.png" alt="Deepcool LE520"></div>
+                <div class="card-info">
+                    <h3>Water Cooler Deepcool LE520 ARGB</h3>
+                    <p class="price">R$ 389,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cooling watercooler" data-desc="Refrigeração líquida premium controlada pelo ecossistema iCUE. Oferece operação ultra silenciosa com ventoinhas de levitação magnética e visual elegante para setups topo de linha." data-specs="Tipo: Water Cooler Premium | Radiador: 360mm | Ventoinhas: 3x 120mm AF ELITE Series | Garantia: Longa durabilidade de mercado">
+                <div class="card-image"><img src="../img/Water Cooler Corsair iCUE H150i RGB Elite.png" alt="Corsair iCUE H150i RGB Elite"></div>
+                <div class="card-info">
+                    <h3>Water Cooler Corsair iCUE H150i RGB Elite</h3>
+                    <p class="price">R$ 1.149,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware cooling watercooler high-performance" data-desc="Um dos water coolers mais potentes do mundo. Projetado para overclockers, traz um radiador mais espesso que o padrão industrial, ventoinhas de pressão estática brutal e tampas de bomba customizáveis." data-specs="Tipo: Water Cooler Entusiasta | Radiador: 360mm (Espessura Alta) | Ventoinhas: 3x 120mm High-Performance L-Connect | Iluminação: ARGB Premium">
+                <div class="card-image"><img src="../img/Water Cooler Lian Li Galahad II Trinity Performance.png" alt="Lian Li Galahad II Trinity Performance"></div>
+                <div class="card-info">
+                    <h3>Water Cooler Lian Li Galahad II Trinity Performance</h3>
+                    <p class="price">R$ 1.499,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-perifericos">
+        <h2>Perifericos</h2>
+        <div class="card-grid">
+            <div class="card card-peripherals keyboard" data-desc="Teclado mecânico compacto de layout 75%. Conta com switches pré-lubrificados de fábrica e construção com isolamento acústico premium." data-specs="Layout: ANSI compacto (75%) | Switches: Lineares customizados | Iluminação: RGB Dinâmico | Conexão: Cabo Removível Type-C">
+                <div class="card-image"><img src="../img/Ajazz-AK820-Teclado.png" alt="AK820"></div>
+                <div class="card-info">
+                    <h3>Teclado Attack Shark x Ajazz AK820</h3>
+                    <p class="price">R$363,33</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-peripherals keyboard" data-desc="O teclado mecânico gamer mais vendido do Brasil em sua version tricolor estilizada. Layout TKL focado em poupar espaço para movimentação do mouse." data-specs="Layout: ABNT2 (TKL) | Switches: Outemu Blue/Red | Iluminação: Rainbow | Estrutura: Plástico ABS e Metal">
+                <div class="card-image"><img src="../img/RedKumara.webp" alt="Kumara"></div>
+                <div class="card-info">
+                    <h3>Teclado Redragon Kumara Tricolor</h3>
+                    <p class="price">R$275,90</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-peripherals mouse" data-desc="Mouse ultraleve de alta performance equipado com sensor topo de linha e uma base de carregamento magnética com display embutido." data-specs="Sensor: PixArt PAW3395 | Peso: 49g | DPI Máximo: 26.000 | Conexão: Wireless 2.4GHz / Bluetooth / Cabo">
+                <div class="card-image"><img src="../img/AtkShrkX11.webp" alt="X11"></div>
+                <div class="card-info">
+                    <h3>Mouse Attack Shark X11 WHITE</h3>
+                    <p class="price">R$135,60</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-nvidia">
+        <h2>GPUs Nvidia</h2>
+        <div class="card-grid">
+
+            <div class="card card-hardware gpu nvidia" data-desc="Um dos maiores sucessos de custo-benefício para jogar em 1080p e 1440p. Excelente desempenho com Ray Tracing e suporte a DLSS 2 para garantir alta taxa de quadros nos jogos mais populares." data-specs="Memória VRAM: 8GB GDDR6 | Interface: 256-bit | Barramento: PCIe 4.0 x16 | Saídas: 3x DisplayPort, 1x HDMI">
+                <div class="card-image"><img src="../img/NVIDIA GeForce RTX 3060 Ti 8gb.png" alt="RTX 3060 Ti"></div>
+                <div class="card-info">
+                    <h3>NVIDIA GeForce RTX 3060 Ti 8gb</h3>
+                    <p class="price">R$ 2.199,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+    </div>
+</div>
+            <div class="card card-hardware gpu nvidia" data-desc="Excelente placa para jogar em 1080p ou 1440p com tudo no talo. Conta com a tecnologia exclusiva DLSS 3 e Frame Generation para multiplicar a taxa de quadros." data-specs="Memória VRAM: 16GB GDDR6 | Interface: 128-bit | Barramento: PCIe 4.0 x8 | Saídas: 3x DisplayPort, 1x HDMI">
+                <div class="card-image"><img src="../img/rtx4060.webp" alt="4060"></div>
+                <div class="card-info">
+                    <h3>RTX 4060 Ti 16gb</h3>
+                    <p class="price">R$3.065,90</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card card-hardware gpu nvidia" data-desc="A nova geração de entrada com a arquitetura mais recente da Nvidia. Eficiência energética absurda combinada com tecnologias de inteligência artificial de última linha." data-specs="Memória VRAM: 8GB GDDR6X | Interface: 128-bit | Suporte Ray Tracing: Núcleos RT de 4ª Geração | Arquitetura: Blackwell">
+                <div class="card-image"><img src="../img/RTX5060.webp" alt="5060"></div>
+                <div class="card-info">
+                    <h3>RTX 5060 8gb</h3>
+                    <p class="price">R$2.765,90</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-amdR">
+        <h2>GPUs AMD Radeon</h2>
+        <div class="card-grid">
+            <div class="card card-hardware gpu amd-compat radeon" data-desc="Excelente desempenho bruto para rasterização pura. Um monstro para jogos competitivos como CS2, Valorant e Warzone com baixíssima latência." data-specs="Memória VRAM: 8GB GDDR6 | Interface: 128-bit | Arquitetura: RDNA 2 | Tecnologias: AMD FSR 3 e Fluid Motion Frames">
+                <div class="card-image"><img src="../img/RX6650xt.webp" alt="6650"></div>
+                <div class="card-info">
+                    <h3>AMD Radeon RX 6650 xt 8gb</h3>
+                    <p class="price">R$2.300,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+                </div>
+            </div>
+            <div class="card card-hardware gpu amd-compat radeon" data-desc="Placa topo de linha ideal para resoluções 4K UHD. Equipada com uma quantidade massiva de memória de vídeo e largura de banda otimizada para lidar com texturas no ultra sem gargalos." data-specs="Memória VRAM: 20GB GDDR6 | Interface: 320-bit | Arquitetura: RDNA 3 | Tecnologias: AMD FSR 3 e Ray Accelerators de 2ª Geração">
+            <div class="card-image"><img src="../img/AMD Radeon RX 7900 XT 20gb.png" alt="RX 7900 XT"></div>
+                <div class="card-info">
+                    <h3>AMD Radeon RX 7900 XT 20gb</h3>
+                    <p class="price">R$ 5.499,00</p>
+                    <button class="btn-buy">Ver Detalhes</button>
+    </div>
+</div>
+
+            <div class="card card-hardware gpu amd-compat radeon" data-desc="O ápice da nova geração de processamento gráfico da AMD. Desenvolvida para taxas de quadros extremas em caminhos de Ray Tracing complexos e inteligência artificial nativa avançada para criadores e entusiastas." data-specs="Memória VRAM: 16GB GDDR7 | Interface: 256-bit | Arquitetura: RDNA Próxima Geração | Tecnologias: IA Avançada e Fluid Motion Frames 2">
+            <div class="card-image"><img src="../img/AMD Radeon RX 9070 XT 16gb.png" alt="RX 9070 XT"></div>
+                <div class="card-info">
+                <h3>AMD Radeon RX 9070 XT 16gb</h3>
+                <p class="price">R$ 6.150,00</p>
+                <button class="btn-buy">Ver Detalhes</button>
+    </div>
+</div>
+        </div>
+    </section>
+</main>
+
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <div class="modal-left">
+                <img id="modalProductImg" src="" alt="Imagem do Produto">
+            </div>
+            <div class="modal-right">
+                <h2 id="modalProductName">Nome do Produto</h2>
+                <p id="modalProductPrice" class="modal-price">R$ 0,00</p>
+                <div class="modal-divider"></div>
+                <h3>Descrição</h3>
+                <p id="modalProductDesc">Descrição do produto...</p>
+                <h3>Especificações Técnicas</h3>
+                <p id="modalProductSpecs" class="modal-specs">Especificações aqui...</p>
+                <a id="modalRedirectBtn" href="../html/carrinho.html"><button class="btn-confirm-buy">Adicionar ao Carrinho</button></a>
+            </div>
+        </div>
+    </div>
+</div>
 
     <footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-col about-col">
-            <h2>Core Match <span class="br-green">
-            <p>Comunidade de Hardware, site confiavel e perfeito para entusiastas de Hardware e Tecnologia.</p>
+        <div class="footer-container">
+            <div class="footer-col about-col">
+                <h2>Core Match</h2>
+                <p>Comunidade de Hardware, site confiável e perfeito para entusiastas de Hardware e Tecnologia.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="../html/blog.html">Blog</a></li>
+                    <li><a href="../html/outlet.html">Outlet</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Políticas de Privacidade</a></li>
+                    <li><a href="#">Email: corematch.contato@gmail.com</a></li>
+                    <li><a href="#">Insta: @core.match</a></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="footer-col">
-            <h4>Navegação</h4>
-            <ul>
-                <li><a href="../html/blog.html">Blog</a></li>
-                <li><a href="../html/outlet.html">Outlet</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Core Match. Todos os direitos reservados.</p>
         </div>
+    </footer>
 
-        <div class="footer-col">
-            <h4>Suporte</h4>
-            <ul>
-                <li><a href="#">Termos de Uso</a></li>
-                <li><a href="#">Políticas de Privacidade</a></li>
-                <li><a href="#">FaceBook: corematch.fb</a></li>
-                <li><a href="#">Email: corematch.contato@gmail.com</a></li>
-                <li><a href="#">Telefone: (31) 9 8888-9999</a></li>
-                <li><a href="#">Insta: @core.match</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 Core Match. Todos os direitos reservados. Para entusiastas de Hardware e Tecnologia.</p>
-    </div>
-</footer>
-<script src="../js/store.js"></script>
+    <script src="../js/store.js"></script>
 </body>
 </html>

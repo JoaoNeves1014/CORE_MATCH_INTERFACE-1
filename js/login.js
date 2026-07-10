@@ -44,6 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             alert("Login realizado");
 
+            
+            // Guarda o token ou o nome do usuário para sabermos que ele está logado
+            localStorage.setItem("usuarioLogado", "true");
+
             console.log(dados);
 
             // redireciona

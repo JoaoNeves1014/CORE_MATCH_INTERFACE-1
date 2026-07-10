@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja - Core Store</title>
+    <link rel="stylesheet" href="../css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="sua-logo.png" alt="logoimg" class="logo-img">
+            </a>
+        </div>
+    
+        <h1 style="color: #00A19B;">Core Store</h1>
+        
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../html/home.html">Home</a></li>
+                <li><a href="../html/outlet.html">Outlet Hardware</a></li>
+                <li><a href="../html/compatible.html">Compatible PCs</a></li>
+                <li><a href="../html/montagem.html">Monte seu PC</a></li>
+                <li><a href="../html/perfil.html">Meu Perfil</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-container">
+            <input type="text" placeholder="Pesquisar...">
+            <button type="submit">Buscar</button>
+        </div>
+
+        <div class="auth-buttons">
+            <a href="../html/login.html" class="btn-login">Login</a>
+            <a href="../html/cadastro.html" class="btn-register">Cadastrar</a>
+        </div>
+    </header>
+
+    <main class="container profile-layout">
+        
+        <aside class="sidebar-menu">
+           
+
+            <button class="menu-item" onclick="switchTab('carrinho')">
+                <i class="fa-solid fa-cart-shopping item-icon"></i>
+                <div class="item-text">
+                    <h3>Meu Carrinho</h3>
+                    <p id="cart-counter-sidebar">1 item</p>
+                </div>
+            </button>
+            
+            <button class="menu-item" onclick="switchTab('compras')">
+                <i class="fa-solid fa-bag-shopping item-icon"></i>
+                <div class="item-text">
+                    <h3>Minhas Compras</h3>
+                </div>
+            </button>
+
+            <button class="menu-item" onclick="switchTab('finalizadas')">
+                <i class="fa-solid fa-list-check item-icon"></i>
+                <div class="item-text">
+                    <h3>Compras Finalizadas</h3>
+                </div>
+            </button>
+
+            <button class="menu-item" onclick="switchTab('dados')">
+                <i class="fa-solid fa-circle-user item-icon"></i>
+                <div class="item-text">
+                    <h3>Meus Dados</h3>
+                </div>
+            </button>
+
+            <button class="menu-item" onclick="switchTab('configuracoes')">
+                <i class="fa-solid fa-gear item-icon"></i>
+                <div class="item-text">
+                    <h3>Configurações</h3>
+                </div>
+            </button>
+
+            <button class="menu-item" onclick="switchTab('ajuda')">
+                <i class="fa-solid fa-circle-question item-icon"></i>
+                <div class="item-text">
+                    <h3>Ajuda e Suporte</h3>
+                </div>
+            </button>
+        </aside>
+
+        <section class="profile-content">
+            
+            <div id="tab-dashboard" class="tab-content active">
+                <div class="profile-card user-welcome-card">
+                    <div class="avatar-box"><i class="fa-solid fa-user"></i></div>
+                    <div class="user-welcome-info">
+                        <h2>Olá, João Pedro</h2>
+                        <p>joao@example.com</p>
+                    </div>
+                </div>
+                <div class="inner-grid" style="margin-top: 25px;">
+                    <div class="left-cards">
+                        <div class="profile-card row-card" onclick="switchTab('compras')" style="cursor:pointer;">
+                            <i class="fa-solid fa-location-crosshairs target-icon"></i>
+                            <div class="card-inner-text">
+                                <h3>Rastrear Pedidos</h3>
+                                <span class="arrow-link">verificar andamento -></span>
+                            </div>
+                        </div>
+                        <div class="profile-card notification-card">
+                            <i class="fa-solid fa-bell notification-icon"></i>
+                            <h3>Nenhuma notificação nova</h3>
+                        </div>
+                    </div>
+                    <div class="profile-card shipping-card">
+                        <div class="shipping-header">
+                            <i class="fa-solid fa-truck-fast truck-icon"></i>
+                            <h3>Último Status</h3>
+                        </div>
+                        <div id="dashboard-shipping-preview" class="product-preview">
+                            <p style="color: #777;">Nenhum produto a caminho no momento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-carrinho" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-cart-shopping"></i> Meu Carrinho</h2>
+                    <div id="cart-items-container">
+                        <div class="cart-item-row" id="item-ryzen">
+                            <div class="item-product-info">
+                                <div class="item-thumb"><i class="fa-solid fa-microchip"></i></div>
+                                <div id="cart-items-container"></div>
+                            </div>
+                            <button class="btn-checkout" onclick="checkoutProduct('AMD Ryzen 5 5600GT', 'item-ryzen')">Finalizar Compra</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-compras" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-bag-shopping"></i> Minhas Compras (Em Andamento)</h2>
+                    <div id="active-orders-container" class="orders-list">
+                        <p class="empty-message">Nenhum pedido em processamento ou transporte.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-finalizadas" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Compras Finalizadas</h2>
+                    <div id="finished-orders-container" class="orders-list">
+                        <div class="order-history-row">
+                            <div>
+                                <h4>Pedido #0944 - Teclado Mecânico RGB</h4>
+                                <p class="order-date">Entregue em: 12/05/2026</p>
+                            </div>
+                            <span class="status-badge success">Concluído</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-dados" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-circle-user"></i> Meus Dados</h2>
+                    <div class="data-form">
+                        <p><strong>Nome Completo:</strong> João Pedro</p>
+                        <p><strong>E-mail Cadastrado:</strong> joao@example.com</p>
+                        <p><strong>Telefone:</strong> (11) 98765-4321</p>
+                        <p><strong>Endereço Principal:</strong> Av. Paulista, 1000 - São Paulo/SP</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-configuracoes" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-gear"></i> Configurações da Conta</h2>
+                    <p style="color:#aaa; margin-bottom: 15px;">Ajuste suas preferências de sistema:</p>
+                    <label style="display:flex; gap:10px; margin-bottom:10px; cursor:pointer;">
+                        <input type="checkbox" checked> Receber atualizações de estoque por Email
+                    </label>
+                    <label style="display:flex; gap:10px; cursor:pointer;">
+                        <input type="checkbox" checked> Autenticação em duas etapas ativa
+                    </label>
+                </div>
+            </div>
+
+            <div id="tab-ajuda" class="tab-content">
+                <div class="profile-card">
+                    <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> Ajuda & Suporte</h2>
+                    <p style="color:#aaa; margin-bottom: 20px;">Precisa de ajuda com algum componente ou compatibilidade?</p>
+                    <button class="btn-checkout" style="width:auto; padding: 10px 20px;">Abrir Ticket de Suporte</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="../js/perfil.js"></script>
+</body>
+</html>

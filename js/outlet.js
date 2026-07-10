@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (estaLogado === "true") {
             // Esconde os botões alterando o display para 'none'
             authButtons.style.display = "none";
+            
+            // (Opcional) Se quiser mostrar um botão de "Sair" (Logout), você pode injetar aqui:
+            // const navbar = document.querySelector('.navbar'); // ou onde desejar
+            // navbar.insertAdjacentHTML('beforeend', '<button onclick="logout()">Sair</button>');
         }
     
     // Função caso você queira permitir o usuário deslogar depois
@@ -15,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.reload(); // Recarrega a página para atualizar os botões
     }
 
-
-    // Elementos da Janela Modal
     const modal = document.getElementById("productModal");
     const closeModalBtn = document.querySelector(".close-modal");
     
@@ -27,29 +29,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalSpecs = document.getElementById("modalProductSpecs");
     const modalRedirectBtn = document.getElementById("modalRedirectBtn");
 
-    // Variável para guardar o card que está ativo no momento
     let cardAtivo = null;
 
-    //Captura todos os cards de produtos para abrir a modal
-    const productCards = document.querySelectorAll(".card");
+    // Monitora especificamente os BOTÕES de comprar, evitando conflito no card
+    const botoesComprar = document.querySelectorAll(".btn-buy");
+    
+    botoesComprar.forEach(botao => {
+        botao.addEventListener("click", (event) => {
+            // Para o comportamento padrão do botão imediatamente
+            event.preventDefault();
+            event.stopPropagation();
 
-    productCards.forEach(card => {
-        card.addEventListener("click", (event) => {
-            // Se o clique for em um link (caso tenha algum solto), não faz nada
-            if (event.target.tagName === 'A') return;
+            // Sobe até o card pai para coletar os dados
+            cardAtivo = botao.closest(".card");''
+            if (!cardAtivo) return;
 
-            // Guarda a referência do card clicado para usar depois no botão do carrinho
-            cardAtivo = card;
-
+            const titulo = cardAtivo.querySelector("h3").innerText;
+            const imagem = cardAtivo.querySelector(".card-image img").getAttribute("src");
+            const precoTexto = cardAtivo.querySelector(".price").innerText;
             
-            const titulo = card.querySelector("h3").innerText;
-            const imagem = card.querySelector(".card-image img").getAttribute("src");
-            const precoTexto = card.querySelector(".price").innerText;
-            
-          
-            const productDesc = card.getAttribute("data-desc") || "Descrição detalhada em breve.";
-            const productSpecs = card.getAttribute("data-specs") || "Especificações técnicas não informadas.";
+            const productDesc = cardAtivo.getAttribute("data-desc") || "Descrição detalhada em breve.";
+            const productSpecs = cardAtivo.getAttribute("data-specs") || "Especificações técnicas não informadas.";
 
+            // Alimenta a janela modal
             modalImg.src = imagem;
             modalImg.alt = titulo;
             modalName.innerText = titulo;
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalDesc.innerText = productDesc;
             modalSpecs.innerText = productSpecs;
 
-
+            // Ativa o display flex e depois joga a classe de transição do CSS
             modal.style.display = "flex";
             setTimeout(() => {
                 modal.classList.add("show");
@@ -65,59 +67,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
- 
+    // Botão definitivo dentro da modal para mandar ao carrinho
     if (modalRedirectBtn) {
         modalRedirectBtn.addEventListener("click", (event) => {
-
             event.preventDefault();
-
             if (!cardAtivo) return;
 
-         
             const titulo = cardAtivo.querySelector("h3").innerText;
             const imagem = cardAtivo.querySelector(".card-image img").getAttribute("src");
             let precoTexto = cardAtivo.querySelector(".price").innerText;
             
-            // Limpa o preço para formato numérico puro
-            let precoLimpo = parseFloat(precoTexto.replace("R$", "").replace(".", "").replace(",", ".").trim());
+            // Limpa formatação de moeda para salvar valor real puro
+            let precoLimpo = parseFloat(precoTexto.replace("R$", "").replace(/\./g, "").replace(",", ".").trim());
 
             const produtoParaCarrinho = {
                 id: Math.random().toString(36).substr(2, 9), 
                 nome: titulo,
                 precoCard: precoLimpo, 
-                precoPix: precoLimpo * 0.865, 
+                precoPix: precoLimpo * 0.865, // Desconto PIX
                 imagem: imagem,
                 quantidade: 1
             };
 
-            // Salva no localStorage exatamente na chave que seu carrinho espera
             localStorage.setItem("itemCarrinho", JSON.stringify(produtoParaCarrinho));
-
-            // Redireciona para a página do carrinho
             window.location.href = "../html/carrinho.html";
         });
     }
 
-    // 4. Funções para fechar a modal de forma limpa
     function closeModal() {
         modal.classList.remove("show");
         setTimeout(() => {
             modal.style.display = "none";
-        }, 300); // 300ms é o tempo da transição do seu CSS
+        }, 300);
     }
 
-    // Fecha no botão (X)
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener("click", closeModal);
-    }
-
-    // Fecha se clicar fora da caixinha preta (no fundo desfocado)
+    if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
     window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
+        if (event.target === modal) closeModal();
+        
     });
-    let carrinho = JSON.parse(localStorage.getItem("itensNoCarrinho")) || [];
-// Verifique se o item já existe para apenas aumentar a quantidade, se não existia faça carrinho.push(novoProduto)
-localStorage.setItem("itensNoCarrinho", JSON.stringify(carrinho));
-});
+});v

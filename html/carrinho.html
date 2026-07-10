@@ -29,50 +29,32 @@
     <section class="cart-left">
         <h2 class="section-title">Meu Carrinho</h2>
         
-        <div class="cart-card">
-            <div class="cart-item-content">
-                <img src="../img/KITXEON.png" alt="Produto" class="cart-img">
-                <div class="cart-details">
-                    <h3>Kit Placa mãe X99 + Xeon E5-2670 V3 + 16gb Ram</h3>
-                    <p class="sku">CÓD: OC-7782</p>
-                    <div class="qty-selector">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                </div>
-                <div class="cart-price-area">
-                    <span class="pix-label">À vista no PIX</span>
-                    <span class="pix-value">R$ 450,00</span>
-                    <span class="card-value">ou R$ 520,00 no cartão</span>
-                </div>
-            </div>
-            <button class="remove-btn">Remover</button>
-        </div>
-
-        </section>
+        <div id="container-produtos-carrinho">
+    </div>
+    </section>
 
     <aside class="cart-right">
-        <div class="summary-card">
-            <h3>RESUMO</h3>
-            <div class="summary-line">
-                <span>Subtotal:</span>
-                <span>R$ 520,00</span>
-            </div>
-            <div class="summary-line total">
-                <span>TOTAL:</span>
-                <span>R$ 520,00</span>
-            </div>
-            
-            <div class="pix-box">
-                <p>VALOR NO PIX</p>
-                <span class="pix-final">R$ 450,00</span>
-                <small>(Economize R$ 70,00)</small>
-            </div>
+        <div class="resumo-box">
+    
+    
+    <div class="pix-box">
+        
+        <p>Subtotal: <span id="resumo-subtotal">R$ 0,00</span></p>
+    <h2>TOTAL: <span id="resumo-total">R$ 0,00</span></h2>
+        <p>VALOR NO PIX</p>
+        <h1 id="resumo-pix">R$ 0,00</h1>
+        <p>(Economize <span id="resumo-economia">R$ 0,00</span>)</p>
 
-            <button class="btn-finish">FINALIZAR COMPRA</button>
-            <a href="#" class="btn-back">CONTINUAR COMPRANDO</a>
-        </div>
+        <button class="btn-finish">FINALIZAR COMPRA</button>
+        <a href="../html/store.html" class="btn-back">
+    ← Continuar Comprando
+                </a>
+</div>
+
+    
+    
+    </div>
+
     </aside>
 </main>
 
@@ -110,5 +92,7 @@
         <p>&copy; 2026 Core Match. Todos os direitos reservados. Para entusiastas de Hardware e Tecnologia.</p>
     </div>
 </footer>
+<script src="../js/carrinho.js"></script>
+
 </body>
 </html>

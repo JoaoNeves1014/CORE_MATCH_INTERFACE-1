@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Esconde os botões alterando o display para 'none'
         authButtons.style.display = "none";
         
-        // (Opcional) Se quiser mostrar um botão de "Sair" (Logout), você pode injetar aqui:
-        // const navbar = document.querySelector('.navbar'); // ou onde desejar
-        // navbar.insertAdjacentHTML('beforeend', '<button onclick="logout()">Sair</button>');
     }
 });
 

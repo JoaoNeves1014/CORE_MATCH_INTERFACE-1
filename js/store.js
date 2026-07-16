@@ -67,35 +67,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
     if (modalRedirectBtn) {
-        modalRedirectBtn.addEventListener("click", (event) => {
 
-            event.preventDefault();
-
+        modalRedirectBtn.addEventListener("click", function (e) {
+    
+            e.preventDefault();
+    
             if (!cardAtivo) return;
-
-         
-            const titulo = cardAtivo.querySelector("h3").innerText;
-            const imagem = cardAtivo.querySelector(".card-image img").getAttribute("src");
-            let precoTexto = cardAtivo.querySelector(".price").innerText;
-            
-            // Limpa o preço para formato numérico puro
-            let precoLimpo = parseFloat(precoTexto.replace("R$", "").replace(".", "").replace(",", ".").trim());
-
-            const produtoParaCarrinho = {
-                id: Math.random().toString(36).substr(2, 9), 
-                nome: titulo,
-                precoCard: precoLimpo, 
-                precoPix: precoLimpo * 0.865, 
+    
+            const nome = cardAtivo.querySelector("h3").innerText;
+            const imagem = cardAtivo.querySelector("img").src;
+    
+            const precoTexto = cardAtivo.querySelector(".price").innerText;
+    
+            const preco = Number(
+                precoTexto
+                    .replace("R$", "")
+                    .replace(/\./g, "")
+                    .replace(",", ".")
+                    .trim()
+            );
+    
+            let tipo = "";
+    
+            if (cardAtivo.classList.contains("cpu"))
+                tipo = "processador";
+    
+            else if (cardAtivo.classList.contains("motherboard"))
+                tipo = "placaMae";
+    
+            else if (cardAtivo.classList.contains("ram"))
+                tipo = "memoria";
+    
+            else if (cardAtivo.classList.contains("ssd"))
+                tipo = "armazenamento";
+    
+            else if (cardAtivo.classList.contains("gpu"))
+                tipo = "gpu";
+    
+            else if (cardAtivo.classList.contains("cabinet"))
+                tipo = "gabinete";
+    
+            else if (cardAtivo.classList.contains("cooling"))
+                tipo = "cooler";
+    
+            const montagem =
+                JSON.parse(localStorage.getItem("montagem")) || {};
+    
+            montagem[tipo] = {
+    
+                nome: nome,
                 imagem: imagem,
-                quantidade: 1
+                preco: preco
+    
             };
-
-            // Salva no localStorage exatamente na chave que seu carrinho espera
-            localStorage.setItem("itemCarrinho", JSON.stringify(produtoParaCarrinho));
-
-            // Redireciona para a página do carrinho
-            window.location.href = "../html/carrinho.html";
+    
+            localStorage.setItem(
+                "montagem",
+                JSON.stringify(montagem)
+            );
+    
+            window.location.href = "../html/montagem.html";
+    
         });
+    
     }
 
     // 4. Funções para fechar a modal de forma limpa

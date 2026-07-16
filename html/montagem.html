@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../css/montagem.css"
+    <link rel="stylesheet" href="../css/montagem.css"/>
     
 </head>
 <body>
@@ -57,7 +57,7 @@
                     <
                     <div>
                         <small>Processador</small>
-                        <p>AMD Ryzen 5 5600X</p>
+                        <p id="processadorNome">Nenhum processador selecionado</p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -68,7 +68,9 @@
                     <span class="comp-icon">🟪</span>
                     <div>
                         <small>Placa-mãe</small>
-                        <p>ASUS ROG STRIX B550-F</p>
+                        <p id="placaMaeNome">
+                            Nenhuma placa-mãe selecionada
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -79,7 +81,9 @@
                     <span class="comp-icon">💾</span>
                     <div>
                         <small>Memória RAM</small>
-                        <p>Corsair Vengeance 16GB DDR4</p>
+                        <p id="memoriaNome">
+                            Nenhuma memória selecionada
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -90,7 +94,9 @@
                     <span class="comp-icon">💽</span>
                     <div>
                         <small>Armazenamento SSD</small>
-                        <p>Samsung 1TB M.2 SSD</p>
+                        <p id="armazenamentoNome">
+                            Nenhum SSD selecionado
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -101,7 +107,9 @@
                     <span class="comp-icon">🎮</span>
                     <div>
                         <small>Placa de Vídeo</small>
-                        <p>NVIDIA GeForce RTX 3070</p>
+                        <p id="gpuNome">
+                            Nenhuma GPU selecionada
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -112,7 +120,9 @@
                     <span class="comp-icon">⚡</span>
                     <div>
                         <small>Gabinete</small>
-                        <p>NZTX H510 ELITE</p>
+                        <p id="gabineteNome">
+                            Nenhum gabinete selecionado
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -122,7 +132,9 @@
                     <span class="comp-icon">⚡</span>
                     <div>
                         <small>Fonte de Energia</small>
-                        <p>Corsair RM750x PSU</p>
+                        <p id="coolerNome">
+                            Nenhum cooler selecionado
+                            </p>
                     </div>
                 </div>
                 <button class="btn-change">Alterar</button>
@@ -148,7 +160,9 @@
         <h3 class="side-title">Análise Geral</h3>
 
         <div class="info-card">
-            <div class="price-box">Preço Total: R$ 8.950,00</div>
+            <div class="price-box" id="precoTotal">
+                Preço Total: R$ 0,00
+                </div>
             <div class="status-box">✓ SISTEMA TOTALMENTE COMPATÍVEL</div>
         </div>
 
@@ -200,6 +214,6 @@
     </section>
 
 </main>
- <script src="js/montagem.js"></script>
+<script src="../js/montagem.js"></script>
 </body>
 </html>

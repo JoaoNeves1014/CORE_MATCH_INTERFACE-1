@@ -11,36 +11,53 @@
 <body>
 
 
-
     <header class="navbar">
-        <div class="logo">
-            <a href="#">
-                <img src="IMG/26b9c395-8744-4a4a-a6b1-3124dcc6da73.jfif" alt="logoimg">
-            </a>
-        </div>
+        <div class="header-container">
+            
 
-        <h1 style="color: #00A19B;">CoreMatch</h1>
+            <div class="logo">
+                <a href="#">
+                    <img id="logo-img" src="../img/CoreMatchoLOGO.png" alt="logoimg" width="250px">
+                </a>
+                <h1 class="brand-title">CoreMatch</h1>
+            </div>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="../html/store.html">Core Store</a></li>
-                <li><a href="../html/outlet.html">Outlet Hardware</a></li>
-                <li><a href="../html/compatible.html">Compatible PCs</a></li>
-                <li><a href="../html/perfil.html">Meu Perfil</a></li>
-            </ul>
-        </nav>
+  
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            
+            <label for="menu-toggle" class="hamburger-label">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </label>
 
-        <div class="search-container">
-            <input type="text" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
-        </div>
 
-        <div class="auth-buttons">
-            <a href="../html/login.html" class="btn-login">Login</a>
-            <a href="../html/cadastro.html" class="btn-register">Cadastrar</a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../html/store.html">Core Store</a></li>
+                    <li><a href="../html/outlet.html">Outlet Hardware</a></li>
+                    <li><a href="../html/compatible.html">Compatible PCs</a></li>
+                    <li><a href="../html/perfil.html">Meu Perfil</a></li>
+                </ul>
+            </nav>
+
+  
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Buscar</button>
+                </div>
+
+                <div class="auth-buttons">
+                    <a href="../html/login.html" class="btn-login">Login</a>
+                    <a href="../html/cadastro.html" class="btn-register">Cadastrar</a>
+                </div>
+            </div>
+
         </div>
     </header>
 
+ 
     <div class="slideshow">
         <a href="seu-link1">
             <img src="../img/BANNER 1.png" alt="Imagem 1">
@@ -53,8 +70,11 @@
         </a>
     </div>
 
+
     <main class="container">
-        <section class="contet-section">
+        
+  
+        <section class="content-section">
             <h2 class="card-title">Peças mais Procuradas</h2>
             <div class="card-grid">
                 <div class="card">
@@ -73,13 +93,12 @@
                     <div class="card-image">
                         <img src="../img/RX580.png" alt="RX580">
                     </div>
-                    <h3>AMD REDEON RX580</h3>
+                    <h3>AMD RADEON RX580</h3>
                 </div>
             </div>
         </section>
 
-
-        <section class="contet-section">
+        <section class="content-section">
             <h2 class="card-title">Novidades</h2>
             <div class="card-grid">
                 <div class="card">
@@ -96,10 +115,9 @@
                     <div class="card-image">
                         <img src="../img/i673598.png" alt="cyka">
                     </div>
-
-                    <h3>CPUs, GPUs e até SSDs estão sendo otimizados pra IA
-                        Chips com IA integrada (tipo os novos processadores com “NPU”) estão virando padrão
-                        Empresas estão criando sistemas “AI-first”, ou seja, já nascem com IA no centro</h3>
+                    <h3>CPUs, GPUs e até SSDs estão sendo otimizados pra IA.
+                        Chips com IA integrada (tipo os novos processadores com “NPU”) estão virando padrão.
+                        Empresas estão criando sistemas “AI-first”, ou seja, já nascem com IA no centro.</h3>
                 </div>
                 <div class="card">
                     <div class="card-image">
@@ -109,12 +127,13 @@
                         praticamente todos os dispositivos. Processadores mais recentes já contam com unidades dedicadas
                         a tarefas de IA, permitindo que computadores e celulares executem funções avançadas sem depender
                         da nuvem. A mudança indica uma transformação estrutural no setor, onde desempenho deixa de ser o
-                        único foco e dá lugar à eficiência e automação inteligente. </h3>
+                        único foco e dá lugar à eficiência e automação inteligente.</h3>
                 </div>
             </div>
         </section>
 
-        <section class="contet-section">
+     
+        <section class="content-section">
             <h2 class="card-title">Curiosidades</h2>
             <div class="card-grid">
                 <div class="card">
@@ -146,9 +165,8 @@
     <footer class="main-footer">
         <div class="footer-container">
             <div class="footer-col about-col">
-                <h2>Core Match <span class="br-green">
-                        <p>Comunidade de Hardware, site confiavel e perfeito para entusiastas de Hardware e Tecnologia.
-                        </p>
+                <h2>Core Match</h2>
+                <p>Comunidade de Hardware, site confiável e perfeito para entusiastas de Hardware e Tecnologia.</p>
             </div>
 
             <div class="footer-col">
@@ -176,6 +194,7 @@
             <p>&copy; 2026 Core Match. Todos os direitos reservados. Para entusiastas de Hardware e Tecnologia.</p>
         </div>
     </footer>
+
     <script src="../js/home.js"></script>
 </body>
 

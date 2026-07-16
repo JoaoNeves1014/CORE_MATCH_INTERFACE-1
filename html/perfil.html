@@ -20,7 +20,7 @@
         
         <nav>
             <ul class="nav-links">
-                <li><a href="../html/home.html">Home</a></li>
+                <li><a href="../html/index.html">Home</a></li>
                 <li><a href="../html/outlet.html">Outlet Hardware</a></li>
                 <li><a href="../html/compatible.html">Compatible PCs</a></li>
                 <li><a href="../html/montagem.html">Monte seu PC</a></li>
@@ -42,8 +42,6 @@
     <main class="container profile-layout">
         
         <aside class="sidebar-menu">
-           
-
             <button class="menu-item" onclick="switchTab('carrinho')">
                 <i class="fa-solid fa-cart-shopping item-icon"></i>
                 <div class="item-text">
@@ -128,37 +126,27 @@
                 <div class="profile-card">
                     <h2 class="section-title"><i class="fa-solid fa-cart-shopping"></i> Meu Carrinho</h2>
                     <div id="cart-items-container">
-                        <div class="cart-item-row" id="item-ryzen">
-                            <div class="item-product-info">
-                                <div class="item-thumb"><i class="fa-solid fa-microchip"></i></div>
-                                <div id="cart-items-container"></div>
-                            </div>
-                            <button class="btn-checkout" onclick="checkoutProduct('AMD Ryzen 5 5600GT', 'item-ryzen')">Finalizar Compra</button>
-                        </div>
+                    
                     </div>
                 </div>
             </div>
 
+            
             <div id="tab-compras" class="tab-content">
                 <div class="profile-card">
                     <h2 class="section-title"><i class="fa-solid fa-bag-shopping"></i> Minhas Compras (Em Andamento)</h2>
-                    <div id="active-orders-container" class="orders-list">
-                        <p class="empty-message">Nenhum pedido em processamento ou transporte.</p>
+                    <div id="container-minhas-compras" class="orders-list">
+                    
                     </div>
                 </div>
             </div>
 
+          
             <div id="tab-finalizadas" class="tab-content">
                 <div class="profile-card">
                     <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Compras Finalizadas</h2>
-                    <div id="finished-orders-container" class="orders-list">
-                        <div class="order-history-row">
-                            <div>
-                                <h4>Pedido #0944 - Teclado Mecânico RGB</h4>
-                                <p class="order-date">Entregue em: 12/05/2026</p>
-                            </div>
-                            <span class="status-badge success">Concluído</span>
-                        </div>
+                    <div id="container-pedidos-finalizados" class="orders-list">
+                    
                     </div>
                 </div>
             </div>
@@ -166,15 +154,21 @@
             <div id="tab-dados" class="tab-content">
                 <div class="profile-card">
                     <h2 class="section-title"><i class="fa-solid fa-circle-user"></i> Meus Dados</h2>
+                    
                     <div class="data-form">
-                        <p><strong>Nome Completo:</strong> João Pedro</p>
-                        <p><strong>E-mail Cadastrado:</strong> joao@example.com</p>
-                        <p><strong>Telefone:</strong> (11) 98765-4321</p>
-                        <p><strong>Endereço Principal:</strong> Av. Paulista, 1000 - São Paulo/SP</p>
+                        <p><strong>Nome Completo:</strong> <span id="info-nome">João Pedro</span></p>
+                        <p><strong>E-mail Cadastrado:</strong> <span id="info-email">joao@example.com</span></p>
+                        <p><strong>Telefone:</strong> <span id="info-telefone">(11) 98765-4321</span></p>
+                        <p><strong>Endereço Principal:</strong> <span id="info-endereco">Av. Paulista, 1000 - São Paulo/SP</span></p>
+                    </div>
+
+                    <div class="logout-container">
+                        <button onclick="fazerLogout()" class="btn-logout">
+                            <i class="fa-solid fa-right-from-bracket"></i> Sair da Minha Conta
+                        </button>
                     </div>
                 </div>
             </div>
-
             <div id="tab-configuracoes" class="tab-content">
                 <div class="profile-card">
                     <h2 class="section-title"><i class="fa-solid fa-gear"></i> Configurações da Conta</h2>

@@ -455,7 +455,37 @@ body {
     font-size: 1rem;
 }
 
+.data-form {
+    margin-bottom: 25px;
+}
 
+.logout-container {
+    border-top: 1px solid #222;
+    padding-top: 20px;
+}
+
+.btn-logout {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #c0392b;
+}
+
+.btn-logout:active {
+    transform: scale(0.98);
+}
 @media (max-width: 992px) {
     .profile-layout {
         grid-template-columns: 1fr;

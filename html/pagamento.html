@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Pagamento & Envio</title>
+    <link rel="stylesheet" href="../css/pagamento.css">
+    
+</head>
+<body>
+
+<div class="container">
+    <div class="header-checkout">
+        <h1><i class="fa-solid fa-shield-halved"></i> Checkout Seguro</h1>
+        <p style="color: #666; margin: 0;">Sua compra 100% criptografada</p>
+    </div>
+
+    <div class="steps">
+        <div id="step-pay-indicator" class="step active">1. Pagamento</div>
+        <div id="step-ship-indicator" class="step">2. Envio & Entrega</div>
+    </div>
+
+    <div class="checkout-grid">
+        
+        <div>
+           
+            <div id="painel-pagamento" class="card-box">
+                <h3>Escolha a forma de pagamento</h3>
+                <div class="payment-methods">
+                    <div class="method-btn selected" onclick="mudarMetodo('pix')">
+                        <i class="fa-solid fa-pix"></i><br>PIX
+                    </div>
+                    <div class="method-btn" onclick="mudarMetodo('cartao')">
+                        <i class="fa-solid fa-credit-card"></i><br>Cartão
+                    </div>
+                    <div class="method-btn" onclick="mudarMetodo('boleto')">
+                        <i class="fa-solid fa-barcode"></i><br>Boleto
+                    </div>
+                </div>
+
+             
+                <div id="pay-pix" class="payment-content active">
+                    <div class="qr-area">
+                        <p style="color: #00A19B; font-weight: bold; margin-top: 0;">Escaneie o QR Code abaixo para pagar:</p>
+                        <div class="qr-image" id="qr-code-container">
+                    
+                        </div>
+                        <p style="font-size: 12px; color: #888;">Ou copie o código Pix abaixo:</p>
+                        <div class="copia-cola-box">
+                            <span id="pix-string" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 80%;">00020126580014BR.GOV.BCB.PIX0136suachavedeexemplo...</span>
+                            <button onclick="copiarPix()" style="background:#00A19B; border:none; padding:5px 10px; cursor:pointer; color:black; font-weight:bold; border-radius:3px;">Copiar</button>
+                        </div>
+                    </div>
+                    <button class="btn-action" style="margin-top: 20px;" onclick="confirmarPagamentoSimulado()">Confirmar Pagamento e Prosseguir</button>
+                </div>
+
+              
+                <div id="pay-cartao" class="payment-content">
+                    <div class="form-group">
+                        <label>Cartões Salvos</label>
+                        <select class="form-control" id="cartao-salvo" onchange="selecionarCartaoSalvo()">
+                            <option value="">-- Usar Novo Cartão --</option>
+                            <option value="salvo1">Mastercard final **** 4321 (Exemplo)</option>
+                        </select>
+                    </div>
+                    <div id="formulario-novo-cartao">
+                        <div class="form-group">
+                            <label>Número do Cartão</label>
+                            <input type="text" class="form-control" id="card-num" placeholder="0000 0000 0000 0000">
+                        </div>
+                        <div class="form-group">
+                            <label>Nome Impresso</label>
+                            <input type="text" class="form-control" id="card-name" placeholder="NOME DO TITULAR">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 1;">
+                                <label>Validade</label>
+                                <input type="text" class="form-control" id="card-exp" placeholder="MM/AA">
+                            </div>
+                            <div class="form-group" style="flex: 1;">
+                                <label>CVV</label>
+                                <input type="text" class="form-control" id="card-cvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-action" style="margin-top: 10px;" onclick="confirmarPagamentoSimulado()">Pagar com Cartão de Crédito</button>
+                </div>
+
+                
+                <div id="pay-boleto" class="payment-content">
+                    <div style="text-align: center; padding: 15px;">
+                        <i class="fa-solid fa-barcode" style="font-size: 50px; color: #00A19B; margin-bottom: 15px;"></i>
+                        <p style="font-weight: bold; margin-top: 0;">Boleto Bancário Gerado com Sucesso</p>
+                        <p style="color: #888; font-size: 13px;">O prazo de compensação do boleto é de até 3 dias úteis.</p>
+                        <div class="copia-cola-box" style="margin-top: 15px;">
+                            <span style="font-size: 11px;">34191.79001 01043.513184 91020.150008 7 9000000015000</span>
+                            <button onclick="alert('Linha digitável copiada!')" style="background:#00A19B; border:none; padding:5px 10px; cursor:pointer; color:black; font-weight:bold; border-radius:3px;">Copiar</button>
+                        </div>
+                    </div>
+                    <button class="btn-action" style="margin-top: 20px;" onclick="confirmarPagamentoSimulado()">Gerar Boleto e Prosseguir</button>
+                </div>
+            </div>
+
+            
+            <div id="painel-envio" class="card-box" style="display: none;">
+                <h3>Informações de Envio</h3>
+                <div class="form-row">
+                    <div class="form-group" style="flex: 2;">
+                        <label>CEP</label>
+                        <input type="text" class="form-control" id="envio-cep" placeholder="00000-000" onblur="calcularFreteSimulado()">
+                    </div>
+                    <div class="form-group" style="flex: 1; align-self: flex-end;">
+                        <button type="button" class="form-control" style="background: #222; border-color: #444; cursor:pointer;" onclick="calcularFreteSimulado()">Calcular</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Rua / Logradouro</label>
+                    <input type="text" class="form-control" id="envio-rua" placeholder="Nome da rua">
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Número</label>
+                        <input type="text" class="form-control" id="envio-numero" placeholder="Ex: 123">
+                    </div>
+                    <div class="form-group" style="flex: 2;">
+                        <label>Complemento</label>
+                        <input type="text" class="form-control" id="envio-comp" placeholder="Apto, Bloco, etc.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Bairro</label>
+                        <input type="text" class="form-control" id="envio-bairro" placeholder="Bairro">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Cidade</label>
+                        <input type="text" class="form-control" id="envio-cidade" placeholder="Cidade">
+                    </div>
+                </div>
+
+                <div id="opcoes-frete-container" style="margin-top: 15px; display: none; background: #161616; padding: 15px; border-radius: 6px; border: 1px solid #222;">
+                    <p style="color: #00A19B; font-weight: bold; margin-top: 0; font-size: 14px;">Opções de frete encontradas:</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <label style="cursor: pointer;"><input type="radio" name="frete-opt" value="15" checked onchange="atualizarFreteCheckout(15)"> Padrão (5 a 8 dias úteis)</label>
+                        <strong style="color: #00A19B;">R$ 15,00</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label style="cursor: pointer;"><input type="radio" name="frete-opt" value="35" onchange="atualizarFreteCheckout(35)"> Expresso (1 a 3 dias úteis)</label>
+                        <strong style="color: #00A19B;">R$ 35,00</strong>
+                    </div>
+                </div>
+
+                <button class="btn-action" style="margin-top: 25px;" onclick="concluirTudoEPorNoHistorico()">Concluir Pedido e Enviar</button>
+            </div>
+        </div>
+
+        <div>
+            <div class="card-box">
+                <h3 style="color: white; border: none; padding-bottom: 0;">Resumo do Pedido</h3>
+                <div id="lista-resumo-produtos" style="max-height: 200px; overflow-y: auto; margin: 15px 0; border-bottom: 1px dashed #222; padding-bottom: 10px;">
+                </div>
+                <div class="item-resumo">
+                    <span>Subtotal:</span>
+                    <strong id="resumo-subtotal">R$ 0,00</strong>
+                </div>
+                <div class="item-resumo">
+                    <span>Frete:</span>
+                    <strong id="resumo-frete">A calcular</strong>
+                </div>
+                <div class="item-resumo" style="border-top: 1px solid #222; padding-top: 10px; font-size: 18px;">
+                    <span style="color: #00A19B;">Total Geral:</span>
+                    <strong id="resumo-total" style="color: #00A19B;">R$ 0,00</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/pagamento.js"></script>
+</body>
+</html>

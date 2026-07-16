@@ -1,22 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
     const authButtons = document.querySelector(".auth-buttons");
         
-        // Verifica se existe a marcação de login no localStorage
         const estaLogado = localStorage.getItem("usuarioLogado");
 
         if (estaLogado === "true") {
-            // Esconde os botões alterando o display para 'none'
             authButtons.style.display = "none";
+            
         }
     
-    // Função caso você queira permitir o usuário deslogar depois
     function logout() {
         localStorage.removeItem("usuarioLogado");
-        window.location.reload(); // Recarrega a página para atualizar os botões
+        window.location.reload();
     }
 
-
-    // Elementos da Janela Modal
     const modal = document.getElementById("productModal");
     const closeModalBtn = document.querySelector(".close-modal");
     
@@ -27,28 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalSpecs = document.getElementById("modalProductSpecs");
     const modalRedirectBtn = document.getElementById("modalRedirectBtn");
 
-    // Variável para guardar o card que está ativo no momento
     let cardAtivo = null;
 
-    //Captura todos os cards de produtos para abrir a modal
-    const productCards = document.querySelectorAll(".card");
+    const botoesComprar = document.querySelectorAll(".btn-buy");
+    
+    botoesComprar.forEach(botao => {
+        botao.addEventListener("click", (event) => {
 
-    productCards.forEach(card => {
-        card.addEventListener("click", (event) => {
-            // Se o clique for em um link (caso tenha algum solto), não faz nada
-            if (event.target.tagName === 'A') return;
+            event.preventDefault();
+            event.stopPropagation();
 
-            // Guarda a referência do card clicado para usar depois no botão do carrinho
-            cardAtivo = card;
+            cardAtivo = botao.closest(".card");''
+            if (!cardAtivo) return;
 
+            const titulo = cardAtivo.querySelector("h3").innerText;
+            const imagem = cardAtivo.querySelector(".card-image img").getAttribute("src");
+            const precoTexto = cardAtivo.querySelector(".price").innerText;
             
-            const titulo = card.querySelector("h3").innerText;
-            const imagem = card.querySelector(".card-image img").getAttribute("src");
-            const precoTexto = card.querySelector(".price").innerText;
-            
-          
-            const productDesc = card.getAttribute("data-desc") || "Descrição detalhada em breve.";
-            const productSpecs = card.getAttribute("data-specs") || "Especificações técnicas não informadas.";
+            const productDesc = cardAtivo.getAttribute("data-desc") || "Descrição detalhada em breve.";
+            const productSpecs = cardAtivo.getAttribute("data-specs") || "Especificações técnicas não informadas.";
 
             modalImg.src = imagem;
             modalImg.alt = titulo;
@@ -57,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
             modalDesc.innerText = productDesc;
             modalSpecs.innerText = productSpecs;
 
-
             modal.style.display = "flex";
             setTimeout(() => {
                 modal.classList.add("show");
@@ -65,93 +57,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
- 
     if (modalRedirectBtn) {
-
-        modalRedirectBtn.addEventListener("click", function (e) {
-    
-            e.preventDefault();
-    
+        modalRedirectBtn.addEventListener("click", (event) => {
+            event.preventDefault();
             if (!cardAtivo) return;
-    
-            const nome = cardAtivo.querySelector("h3").innerText;
-            const imagem = cardAtivo.querySelector("img").src;
-    
-            const precoTexto = cardAtivo.querySelector(".price").innerText;
-    
-            const preco = Number(
-                precoTexto
-                    .replace("R$", "")
-                    .replace(/\./g, "")
-                    .replace(",", ".")
-                    .trim()
-            );
-    
-            let tipo = "";
-    
-            if (cardAtivo.classList.contains("cpu"))
-                tipo = "processador";
-    
-            else if (cardAtivo.classList.contains("motherboard"))
-                tipo = "placaMae";
-    
-            else if (cardAtivo.classList.contains("ram"))
-                tipo = "memoria";
-    
-            else if (cardAtivo.classList.contains("ssd"))
-                tipo = "armazenamento";
-    
-            else if (cardAtivo.classList.contains("gpu"))
-                tipo = "gpu";
-    
-            else if (cardAtivo.classList.contains("cabinet"))
-                tipo = "gabinete";
-    
-            else if (cardAtivo.classList.contains("cooling"))
-                tipo = "cooler";
-    
-            const montagem =
-                JSON.parse(localStorage.getItem("montagem")) || {};
-    
-            montagem[tipo] = {
-    
-                nome: nome,
+
+            const titulo = cardAtivo.querySelector("h3").innerText;
+            const imagem = cardAtivo.querySelector(".card-image img").getAttribute("src");
+            let precoTexto = cardAtivo.querySelector(".price").innerText;
+            
+            let precoLimpo = parseFloat(precoTexto.replace("R$", "").replace(/\./g, "").replace(",", ".").trim());
+
+            const produtoParaCarrinho = {
+                id: Math.random().toString(36).substr(2, 9), 
+                nome: titulo,
+                precoCard: precoLimpo, 
+                precoPix: precoLimpo * 0.865,
                 imagem: imagem,
-                preco: preco
-    
+                quantidade: 1
             };
-    
-            localStorage.setItem(
-                "montagem",
-                JSON.stringify(montagem)
-            );
-    
-            window.location.href = "../html/montagem.html";
-    
+
+            localStorage.setItem("itemCarrinho", JSON.stringify(produtoParaCarrinho));
+            window.location.href = "../html/carrinho.html";
         });
-    
     }
 
-    // 4. Funções para fechar a modal de forma limpa
     function closeModal() {
         modal.classList.remove("show");
         setTimeout(() => {
             modal.style.display = "none";
-        }, 300); // 300ms é o tempo da transição do seu CSS
+        }, 300);
     }
 
-    // Fecha no botão (X)
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener("click", closeModal);
-    }
-
-    // Fecha se clicar fora da caixinha preta (no fundo desfocado)
+    if (closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
     window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
+        if (event.target === modal) closeModal();
+        
     });
-    let carrinho = JSON.parse(localStorage.getItem("itensNoCarrinho")) || [];
-// Verifique se o item já existe para apenas aumentar a quantidade, se não existia faça carrinho.push(novoProduto)
-localStorage.setItem("itensNoCarrinho", JSON.stringify(carrinho));
-});
+});v

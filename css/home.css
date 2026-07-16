@@ -170,9 +170,7 @@ body {
     display: none;
 }
 
-/* ==========================================================================
-   3. SEÇÕES DE CONTEÚDO (GRID E CARDS)
-   ========================================================================== */
+
 .container {
     max-width: 1600px;
     margin: 40px auto;
@@ -235,11 +233,11 @@ body {
     margin-bottom: 10px;
 }
 
-/* Banner Slideshow */
+
 .slideshow {
     position: relative;
     width: 100%;
-    height: 500px; 
+    aspect-ratio: 1920 / 650; 
     overflow: hidden;
     background-color: #0b0b0b;
 }
@@ -267,9 +265,6 @@ body {
     100% { opacity: 0; }
 }
 
-/* ==========================================================================
-   4. RODAPÉ (FOOTER)
-   ========================================================================== */
 .main-footer {
     background-color: #111;
     color: #ccc;

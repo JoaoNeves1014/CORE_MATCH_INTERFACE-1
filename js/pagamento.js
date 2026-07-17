@@ -108,9 +108,9 @@ function calcularFreteSimulado() {
 
     document.getElementById("opcoes-frete-container").style.display = "block";
     
-    document.getElementById("envio-rua").value = "Avenida Paulista";
-    document.getElementById("envio-bairro").value = "Bela Vista";
-    document.getElementById("envio-cidade").value = "São Paulo";
+    document.getElementById("envio-rua").value = "Paineiras";
+    document.getElementById("envio-bairro").value = "Eldorado";
+    document.getElementById("envio-cidade").value = "Contagem";
 
     atualizarFreteCheckout(15);
 }
@@ -131,17 +131,14 @@ function concluirTudoEPorNoHistorico() {
         return;
     }
 
-    // Puxa o histórico atual ou cria um novo array
-    let minhasCompras = JSON.parse(localStorage.getItem("minhasCompras")) || [];
-
-    // Formata o endereço de entrega em uma string legível
+    // A chave CORRETA que seu perfil.js deve ler é "MinhasCompras"
+    let MinhasCompras = JSON.parse(localStorage.getItem("MinhasCompras")) || [];
     const enderecoFormatado = `${rua}, Nº ${numero} - ${cidade}`;
 
-    // Insere todos os itens comprados no histórico de forma organizada
     listaProdutos.forEach(item => {
         const precoUtilizado = item.precoPix || item.precoCard || 0;
         
-        minhasCompras.push({
+        MinhasCompras.push({
             id: item.id,
             nome: item.nome,
             imagem: item.imagem,
@@ -154,14 +151,43 @@ function concluirTudoEPorNoHistorico() {
         });
     });
 
-    // Salva no banco de dados local do Usuário
-    localStorage.setItem("minhasCompras", JSON.stringify(minhasCompras));
+    localStorage.setItem("MinhasCompras", JSON.stringify(MinhasCompras));
     
-    // Limpa o carrinho de compras do site
+    // IMPORTANTE: Limpe a chave que você definiu lá no topo do seu JS (itensNoCarrinho)
     localStorage.removeItem("itensNoCarrinho");
 
-    alert("Pedido Concluído com Sucesso! Seus itens foram adicionados em 'Minhas Compras'.");
-    
-    // Redireciona para o Perfil (aba de minhas compras)
+    alert("Pedido Concluído com Sucesso!");
     window.location.href = "../html/perfil.html";
+}
+function finalizarCompra() {
+    // 1. Pega o carrinho
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    // 2. Pega as compras atuais (ou cria uma nova lista)
+    let MinhasCompras = JSON.parse(localStorage.getItem("MinhasCompras")) || [];
+
+    // 3. Move os itens do carrinho para "Minhas Compras"
+    carrinho.forEach(item => {
+        const novoPedido = {
+            ...item,
+            codigoPedido: '#CO' + Math.floor(Math.random() * 9000 + 1000),
+            dataCompra: new Date().toLocaleDateString('pt-BR'),
+            statusEntrega: "Pedido Recebido"
+        };
+        MinhasCompras.push(novoPedido);
+    });
+
+    // 4. Salva no localStorage e limpa o carrinho
+    localStorage.setItem("MinhasCompras", JSON.stringify(MinhasCompras));
+    localStorage.removeItem("carrinho");
+
+    alert("Compra finalizada com sucesso! Verifique em 'Minhas Compras'.");
+
+    // 5. Atualiza a tela
+    window.location.href = "../html/perfil.html"; 
 }

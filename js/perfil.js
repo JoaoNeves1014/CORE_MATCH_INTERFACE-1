@@ -59,10 +59,27 @@ function fazerLogout() {
 function renderizarMinhasCompras() {
     const container = document.getElementById("container-minhas-compras");
     if (!container) return;
-    let compras = JSON.parse(localStorage.getItem("minhasCompras")) || [];
-    if (compras.length === 0) container.innerHTML = "<p>Nenhum pedido em andamento.</p>";
-}
 
+    // Deve buscar a mesma chave usada no pagamento.js
+    let minhasCompras = JSON.parse(localStorage.getItem("MinhasCompras")) || [];
+
+    if (minhasCompras.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>Nenhum pedido em andamento.</p>";
+        return;
+    }
+
+    container.innerHTML = "";
+    minhasCompras.forEach(pedido => {
+        container.innerHTML += `
+            <div class="pedido-card">
+                <p><strong>Pedido:</strong> ${pedido.codigoPedido}</p>
+                <p><strong>Produto:</strong> ${pedido.nome}</p>
+                <p><strong>Status:</strong> ${pedido.statusEntrega}</p>
+                <hr>
+            </div>
+        `;
+    });
+}
 function renderizarPedidosFinalizados() {
     const container = document.getElementById("container-pedidos-finalizados");
     if (!container) return;
@@ -75,3 +92,4 @@ function atualizarPreviewDashboard() {
     if (!preview) return;
     // Lógica para exibir o último status aqui
 }
+
